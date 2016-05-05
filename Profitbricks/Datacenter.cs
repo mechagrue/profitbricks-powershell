@@ -12,7 +12,7 @@ using System.Runtime.InteropServices;
 namespace Profitbricks
 {
     /// <summary>
-    /// <para type="synopsis">This commandlet will get one or list of Virtual Datacenters from your Profitbricks instance.</para>
+    /// <para type="synopsis">This commandlet will get one or list of Virtual data centers from your Profitbricks instance.</para>
     /// </summary>
     /// <example>
     /// <para type="description">Get-PBDatacenter </para>
@@ -25,9 +25,9 @@ namespace Profitbricks
         #region Parameters
 
         /// <summary>
-        /// <para type="description">Virtual Datacenter Id. If this parameters is not passed the commandlet will return list of all datacenters from your Profitbricks instance.</para>
+        /// <para type="description">Virtual data center Id. If this parameters is not passed the commandlet will return list of all datacenters from your Profitbricks instance.</para>
         /// </summary>
-        [Parameter(Position = 0, HelpMessage = "Virtual Datacenter Id")]
+        [Parameter(Position = 0, HelpMessage = "Virtual data center Id")]
         public string DataCenterId { get; set; }
 
         #endregion
@@ -57,7 +57,7 @@ namespace Profitbricks
     }
 
     /// <summary>
-    /// <para type="synopsis">This commandlet will create Virtual Datacenter in your Profitbricks instance.</para>
+    /// <para type="synopsis">This commandlet will create Virtual data center in your Profitbricks instance.</para>
     /// </summary>
     /// <example>
     /// <para type="example">New-PBDatacenter -Name [name] -Location [location id]</para>
@@ -71,19 +71,19 @@ namespace Profitbricks
         /// <summary>
         /// <para type="description">The name of the data center.</para>
         /// </summary>
-        [Parameter(Position = 0, HelpMessage = "Virtual Datacenter Name", Mandatory = true)]
+        [Parameter(Position = 0, HelpMessage = "Virtual data center Name", Mandatory = true)]
         public string Name { get; set; }
 
         /// <summary>
-        /// <para type="description">Virtual Datacenter Location (us/las, de/fkb, de/fra). Mandatory parameter</para>
+        /// <para type="description">Virtual data center Location (us/las, de/fkb, de/fra). Mandatory parameter</para>
         /// </summary>
-        [Parameter(Position = 1, HelpMessage = "Virtual Datacenter Location (us/las, de/fkb, de/fra)", ValueFromPipeline = true,Mandatory = true)]
+        [Parameter(Position = 1, HelpMessage = "Virtual data center Location (us/las, de/fkb, de/fra)", ValueFromPipeline = true,Mandatory = true)]
         public string Location { get; set; }
 
         /// <summary>
-        /// <para type="description">Virtual Datacenter Description</para>
+        /// <para type="description">Virtual data center Description</para>
         /// </summary>
-        [Parameter(Position = 2, HelpMessage = "Virtual Datacenter Description", Mandatory = false)]
+        [Parameter(Position = 2, HelpMessage = "Virtual data center Description", Mandatory = false)]
         public string Description { get; set; }
 
         #endregion
@@ -115,7 +115,7 @@ namespace Profitbricks
     }
 
     /// <summary>
-    /// <para type="synopsis">This commandlet will remove Virtual Datacenter from your Profitbricks instance.</para>
+    /// <para type="synopsis">This commandlet will remove Virtual data center from your Profitbricks instance.</para>
     /// </summary>
     /// <example>
     /// <para type="description">Remove-PBDatacenter -DataCenterId [UUID] </para>
@@ -127,9 +127,9 @@ namespace Profitbricks
         #region Parameters
 
         /// <summary>
-        /// <para type="description">Virtual Datacenter Id. </para>
+        /// <para type="description">Virtual data center Id. </para>
         /// </summary>
-        [Parameter(Position = 0, HelpMessage = "Virtual Datacenter Id", Mandatory = true, ValueFromPipeline = true)]
+        [Parameter(Position = 0, HelpMessage = "Virtual data center Id", Mandatory = true, ValueFromPipeline = true)]
         public string DataCenterId { get; set; }
 
         #endregion
@@ -142,7 +142,7 @@ namespace Profitbricks
 
                 var resp = dcApi.Delete(this.DataCenterId);
 
-                WriteObject("Virtual Datacenter successfully removed ");
+                WriteObject("Virtual data center successfully removed ");
             }
             catch (Exception ex)
             {
@@ -152,7 +152,7 @@ namespace Profitbricks
     }
 
     /// <summary>
-    /// <para type="synopsis">This commandlet will update Virtual Datacenter properties.</para>
+    /// <para type="synopsis">This commandlet will update Virtual data center properties.</para>
     /// <para type="synopsis">Only parameters passed in the commandlet will be updated.</para>
     /// </summary>
     /// <example>
@@ -165,21 +165,21 @@ namespace Profitbricks
         #region Parameters
 
         /// <summary>
-        /// <para type="description">Virtual Datacenter Id. Mandatory parameter. </para>
+        /// <para type="description">Virtual data center Id. Mandatory parameter. </para>
         /// </summary>
-        [Parameter(Position = 0, HelpMessage = "Virtual Datacenter Id", Mandatory = true, ValueFromPipeline = true)]
+        [Parameter(Position = 0, HelpMessage = "Virtual data center Id", Mandatory = true, ValueFromPipeline = true)]
         public string DataCenterId { get; set; }
 
         /// <summary>
-        /// <para type="description">Virtual Datacenter new name. </para>
+        /// <para type="description">Virtual data center new name. </para>
         /// </summary>
-        [Parameter(Position = 1, HelpMessage = "Virtual Datacenter Name", ValueFromPipeline = true)]
+        [Parameter(Position = 1, HelpMessage = "Virtual data center Name", ValueFromPipeline = true)]
         public string Name { get; set; }
 
         /// <summary>
-        /// <para type="description">Virtual Datacenter Description. </para>
+        /// <para type="description">Virtual data center Description. </para>
         /// </summary>
-        [Parameter(Position = 1, HelpMessage = "Virtual Datacenter Description", ValueFromPipeline = true)]
+        [Parameter(Position = 1, HelpMessage = "Virtual data center Description", ValueFromPipeline = true)]
         public string Description { get; set; }
 
         #endregion
@@ -193,7 +193,7 @@ namespace Profitbricks
                 if ((string.IsNullOrWhiteSpace(Name) || string.IsNullOrEmpty(Name)) &&
                     (string.IsNullOrWhiteSpace(Description) || string.IsNullOrEmpty(Description)))
                 {
-                    WriteError(new ErrorRecord(new Exception("Please provide Name or Description to update Virtual Datacenter."), "", ErrorCategory.InvalidArgument, ""));
+                    WriteError(new ErrorRecord(new Exception("Please provide Name or Description to update Virtual data center."), "", ErrorCategory.InvalidArgument, ""));
                 }
                 else
                 {

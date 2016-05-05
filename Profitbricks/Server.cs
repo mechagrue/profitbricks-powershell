@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace Profitbricks
 {
     /// <summary>
-    /// <para type="synopsis">This commandlet will get one or list of Servers associated to the Virtual Datacenter.</para>
+    /// <para type="synopsis">This commandlet will get one or list of Servers associated to the Virtual data center.</para>
     /// </summary>
     /// <example>
     /// <para type="description">Get-PBServer -DataCenterId [UUID]</para>
@@ -24,13 +24,13 @@ namespace Profitbricks
         #region Parameters
 
         /// <summary>
-        /// <para type="description">Virtual Datacenter Id. Mandatory parameter.</para>
+        /// <para type="description">Virtual data center Id. Mandatory parameter.</para>
         /// </summary>
-        [Parameter(Position = 0, HelpMessage = "Virtual Datacenter Id", Mandatory = true, ValueFromPipeline = true)]
+        [Parameter(Position = 0, HelpMessage = "Virtual data center Id", Mandatory = true, ValueFromPipeline = true)]
         public string DataCenterId { get; set; }
 
         /// <summary>
-        /// <para type="description">Server Id. If this parameters is not passed the commandlet will return list of all servers from Virtual Datacenter passed in previous parameter.</para>
+        /// <para type="description">Server Id. If this parameters is not passed the commandlet will return list of all servers from Virtual data center passed in previous parameter.</para>
         /// </summary>
         [Parameter(Position = 1, HelpMessage = "Server Id", ValueFromPipeline = true)]
         public string ServerId { get; set; }
@@ -63,7 +63,7 @@ namespace Profitbricks
     }
 
     /// <summary>
-    /// <para type="synopsis">This commandlet will create Server within a Virtual Datacenter.</para>
+    /// <para type="synopsis">This commandlet will create Server within a Virtual data center.</para>
     /// </summary>
     /// <example>
     /// <para type="description">New-PBServer -DataCenterId [UUID] -Name [name] -Cores [cores] -Ram [ram]</para>
@@ -75,9 +75,9 @@ namespace Profitbricks
         #region Parameters
 
         /// <summary>
-        /// <para type="description">Virtual Datacenter Id. Mandatory parameter.</para>
+        /// <para type="description">Virtual data center Id. Mandatory parameter.</para>
         /// </summary>
-        [Parameter(Position = 0, HelpMessage = "Virtual Datacenter Id", Mandatory = true, ValueFromPipeline = true)]
+        [Parameter(Position = 0, HelpMessage = "Virtual data center Id", Mandatory = true, ValueFromPipeline = true)]
         public string DataCenterId { get; set; }
 
         /// <summary>
@@ -163,7 +163,7 @@ namespace Profitbricks
     }
 
     /// <summary>
-    /// <para type="synopsis">This commandlet will remove Virtual Datacenter from your Profitbricks instance.</para>
+    /// <para type="synopsis">This commandlet will remove Virtual data center from your Profitbricks instance.</para>
     /// </summary>
     /// <example>
     /// <para type="description">Remove-PBServer -DataCenterId [UUID] -ServerId [UUID]</para>
@@ -175,9 +175,9 @@ namespace Profitbricks
         #region Parameters
 
         /// <summary>
-        /// <para type="description">Virtual Datacenter Id. Mandatory parameter.</para>
+        /// <para type="description">Virtual data center Id. Mandatory parameter.</para>
         /// </summary>
-        [Parameter(Position = 0, HelpMessage = "Virtual Datacenter Id", Mandatory = true, ValueFromPipeline = true)]
+        [Parameter(Position = 0, HelpMessage = "Virtual data center Id", Mandatory = true, ValueFromPipeline = true)]
         public string DataCenterId { get; set; }
 
         /// <summary>
@@ -219,9 +219,9 @@ namespace Profitbricks
         #region Parameters
 
         /// <summary>
-        /// <para type="description">Virtual Datacenter Id. Mandatory parameter.</para>
+        /// <para type="description">Virtual data center Id. Mandatory parameter.</para>
         /// </summary>
-        [Parameter(Position = 0, HelpMessage = "Virtual Datacenter Id", Mandatory = true, ValueFromPipeline = true)]
+        [Parameter(Position = 0, HelpMessage = "Virtual data center Id", Mandatory = true, ValueFromPipeline = true)]
         public string DataCenterId { get; set; }
 
         /// <summary>
@@ -296,9 +296,9 @@ namespace Profitbricks
         #region Parameters
 
         /// <summary>
-        /// <para type="description">Virtual Datacenter Id. Mandatory parameter.</para>
+        /// <para type="description">Virtual data center Id. Mandatory parameter.</para>
         /// </summary>
-        [Parameter(Position = 0, HelpMessage = "Virtual Datacenter Id", Mandatory = true, ValueFromPipeline = true)]
+        [Parameter(Position = 0, HelpMessage = "Virtual data center Id", Mandatory = true, ValueFromPipeline = true)]
         public string DataCenterId { get; set; }
 
         /// <summary>
@@ -338,9 +338,9 @@ namespace Profitbricks
         #region Parameters
 
         /// <summary>
-        /// <para type="description">Virtual Datacenter Id. Mandatory parameter.</para>
+        /// <para type="description">Virtual data center Id. Mandatory parameter.</para>
         /// </summary>
-        [Parameter(Position = 0, HelpMessage = "Virtual Datacenter Id", Mandatory = true, ValueFromPipeline = true)]
+        [Parameter(Position = 0, HelpMessage = "Virtual data center Id", Mandatory = true, ValueFromPipeline = true)]
         public string DataCenterId { get; set; }
 
         /// <summary>
@@ -378,9 +378,9 @@ namespace Profitbricks
         #region Parameters
 
         /// <summary>
-        /// <para type="description">Virtual Datacenter Id. Mandatory parameter.</para>
+        /// <para type="description">Virtual data center Id. Mandatory parameter.</para>
         /// </summary>
-        [Parameter(Position = 0, HelpMessage = "Virtual Datacenter Id", Mandatory = true, ValueFromPipeline = true)]
+        [Parameter(Position = 0, HelpMessage = "Virtual data center Id", Mandatory = true, ValueFromPipeline = true)]
         public string DataCenterId { get; set; }
 
         /// <summary>

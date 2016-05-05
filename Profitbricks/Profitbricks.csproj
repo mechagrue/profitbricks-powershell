@@ -85,6 +85,7 @@
     <None Include="packages.config" />
     <None Include="test_scripts\datacenter_test.ps1" />
     <None Include="test_scripts\snapshot_test.ps1" />
+    <None Include="test_scripts\loadbalancer_test.ps1" />
     <None Include="test_scripts\volume_test.ps1" />
     <None Include="test_scripts\server_test.ps1" />
   </ItemGroup>

@@ -70,9 +70,9 @@ namespace Profitbricks
         #region Parameters
 
         /// <summary>
-        /// <para type="description">Virtual Datacenter Id. Mandatory Parameter</para>
+        /// <para type="description">Virtual data center Id. Mandatory Parameter</para>
         /// </summary>
-        [Parameter(Position = 0, HelpMessage = "Virtual Datacenter Id", Mandatory = true, ValueFromPipeline = true)]
+        [Parameter(Position = 0, HelpMessage = "Virtual data center Id", Mandatory = true, ValueFromPipeline = true)]
         public string DatacenterId { get; set; }
 
         /// <summary>
@@ -313,9 +313,9 @@ namespace Profitbricks
         #region Parameters
 
         /// <summary>
-        /// <para type="description">Virtual Datacenter Id. Mandatory Parameter</para>
+        /// <para type="description">Virtual data center Id. Mandatory Parameter</para>
         /// </summary>
-        [Parameter(Position = 0, HelpMessage = "Virtual Datacenter Id", Mandatory = true, ValueFromPipeline = true)]
+        [Parameter(Position = 0, HelpMessage = "Virtual data center Id", Mandatory = true, ValueFromPipeline = true)]
         public string DatacenterId { get; set; }
 
         /// <summary>
