@@ -22,7 +22,7 @@ namespace Profitbricks
         #region Parameters
 
         /// <summary>
-        /// <para type="description">Request Url</para>
+        /// <para type="description">Request URL</para>
         /// </summary>
         [Parameter(Position = 0, HelpMessage = "Request Url", Mandatory = true, ValueFromPipeline = true)]
         public string RequestUrl { get; set; }
