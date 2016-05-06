@@ -38,7 +38,7 @@ Before you begin you will need to have [signed-up](https://www.profitbricks.com/
 
 ## Installation
 
-Download the [ProfitBricks.Zip](---) and extract all. Use one of the followimg options to make the module availible for PowerShell:
+Download the [Profitbricks.Zip](https://github.com/StackPointCloud/profitbricks-powershell/releases/download/v1.0.0/Profitbricks.zip) and extract all. Use one of the followimg options to make the module availible for PowerShell:
 
 1. Place the resulting folder `Profitbricks` (does contain 3 Files) in `%USERPROFILE%\Documents\WindowsPowerShell\Modules\` will auto load the module on PowerShell start for the User.
 2. Place the resulting folder `Profitbricks` (does contain 3 Files) in `%SYSTEMROT%\System32\WindowsPowerShell\v1.0\Modules\` will make the module system wide availible (not recommended)
