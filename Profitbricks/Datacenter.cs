@@ -12,7 +12,7 @@ using System.Runtime.InteropServices;
 namespace Profitbricks
 {
     /// <summary>
-    /// <para type="synopsis">This commandlet will get one or list of Virtual data centers from your Profitbricks instance.</para>
+    /// <para type="synopsis">This commandlet will get one or a list of virtual data centers from your ProfitBricks instance.</para>
     /// </summary>
     /// <example>
     /// <para type="description">Get-PBDatacenter </para>
@@ -25,7 +25,7 @@ namespace Profitbricks
         #region Parameters
 
         /// <summary>
-        /// <para type="description">Virtual data center Id. If this parameters is not passed the commandlet will return list of all datacenters from your Profitbricks instance.</para>
+        /// <para type="description">Virtual data center ID. If this parameter is not passed, the commandlet will return a list of all datacenters from your ProfitBricks instance.</para>
         /// </summary>
         [Parameter(Position = 0, HelpMessage = "Virtual data center Id")]
         public string DataCenterId { get; set; }
@@ -57,7 +57,7 @@ namespace Profitbricks
     }
 
     /// <summary>
-    /// <para type="synopsis">This commandlet will create Virtual data center in your Profitbricks instance.</para>
+    /// <para type="synopsis">This commandlet will create a virtual data center in your ProfitBricks instance.</para>
     /// </summary>
     /// <example>
     /// <para type="example">New-PBDatacenter -Name [name] -Location [location id]</para>
@@ -75,13 +75,13 @@ namespace Profitbricks
         public string Name { get; set; }
 
         /// <summary>
-        /// <para type="description">Virtual data center Location (us/las, de/fkb, de/fra). Mandatory parameter</para>
+        /// <para type="description">Virtual data center location (us/las, de/fkb, de/fra). Mandatory parameter</para>
         /// </summary>
         [Parameter(Position = 1, HelpMessage = "Virtual data center Location (us/las, de/fkb, de/fra)", ValueFromPipeline = true,Mandatory = true)]
         public string Location { get; set; }
 
         /// <summary>
-        /// <para type="description">Virtual data center Description</para>
+        /// <para type="description">Virtual data center description</para>
         /// </summary>
         [Parameter(Position = 2, HelpMessage = "Virtual data center Description", Mandatory = false)]
         public string Description { get; set; }
@@ -115,7 +115,7 @@ namespace Profitbricks
     }
 
     /// <summary>
-    /// <para type="synopsis">This commandlet will remove Virtual data center from your Profitbricks instance.</para>
+    /// <para type="synopsis">This commandlet will remove a virtual data center from your ProfitBricks instance.</para>
     /// </summary>
     /// <example>
     /// <para type="description">Remove-PBDatacenter -DataCenterId [UUID] </para>
@@ -127,7 +127,7 @@ namespace Profitbricks
         #region Parameters
 
         /// <summary>
-        /// <para type="description">Virtual data center Id. </para>
+        /// <para type="description">Virtual data center ID. </para>
         /// </summary>
         [Parameter(Position = 0, HelpMessage = "Virtual data center Id", Mandatory = true, ValueFromPipeline = true)]
         public string DataCenterId { get; set; }
@@ -152,7 +152,7 @@ namespace Profitbricks
     }
 
     /// <summary>
-    /// <para type="synopsis">This commandlet will update Virtual data center properties.</para>
+    /// <para type="synopsis">This commandlet will update virtual data center properties.</para>
     /// <para type="synopsis">Only parameters passed in the commandlet will be updated.</para>
     /// </summary>
     /// <example>
@@ -165,7 +165,7 @@ namespace Profitbricks
         #region Parameters
 
         /// <summary>
-        /// <para type="description">Virtual data center Id. Mandatory parameter. </para>
+        /// <para type="description">Virtual data center ID. Mandatory parameter. </para>
         /// </summary>
         [Parameter(Position = 0, HelpMessage = "Virtual data center Id", Mandatory = true, ValueFromPipeline = true)]
         public string DataCenterId { get; set; }
@@ -177,7 +177,7 @@ namespace Profitbricks
         public string Name { get; set; }
 
         /// <summary>
-        /// <para type="description">Virtual data center Description. </para>
+        /// <para type="description">Virtual data center description. </para>
         /// </summary>
         [Parameter(Position = 1, HelpMessage = "Virtual data center Description", ValueFromPipeline = true)]
         public string Description { get; set; }
