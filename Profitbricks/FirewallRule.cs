@@ -9,22 +9,41 @@ using System.Threading.Tasks;
 
 namespace Profitbricks
 {
+    /// <summary>
+    /// <para type="synopsis">This commandlet will get one or list of Firewall Rules associated with a particular NIC.</para>
+    /// </summary>
+    /// <example>
+    /// <para type="description">Get-PBFirewallRule -DataCenterId [UUID] -ServerId [UUID] -NicId [UUID]</para>
+    /// <para type="description">Get-PBFirewallRule -DataCenterId [UUID] -ServerId [UUID] -NicId [UUID] -FirewallRuleId[UUID]</para>
+    /// </example>
     [Cmdlet(VerbsCommon.Get, "PBFirewallRule")]
     [OutputType(typeof(FirewallRule))]
     public class GetFirewallRule : Cmdlet
     {
         #region Parameters
 
+        /// <summary>
+        /// <para type="description">Virtual data center Id. Mandatory parameter.</para>
+        /// </summary>
         [Parameter(Position = 0, HelpMessage = "Virtual data center Id", Mandatory = true, ValueFromPipeline = true)]
         public string DataCenterId { get; set; }
 
+        /// <summary>
+        /// <para type="description">Server Id. Mandatory parameter.</para>
+        /// </summary>
         [Parameter(Position = 0, HelpMessage = "Server Id", Mandatory = true, ValueFromPipeline = true)]
         public string ServerId { get; set; }
 
+        /// <summary>
+        /// <para type="description">Nic Id. Mandatory parameter.</para>
+        /// </summary>
         [Parameter(Position = 0, HelpMessage = "Nic Id", Mandatory = true, ValueFromPipeline = true)]
         public string NicId { get; set; }
 
-        [Parameter(Position = 0, HelpMessage = "Firewall Rule Id")]
+        /// <summary>
+        /// <para type="description">Firewall Rule Id. If this parameters is not passed the commandlet will return list of all firewall rules associated to the NIC in question.</para>
+        /// </summary>
+        [Parameter(Position = 0, HelpMessage = "Firewall Rule Id", ValueFromPipeline = true)]
         public string FirewallRuleId { get; set; }
 
         #endregion
@@ -54,47 +73,89 @@ namespace Profitbricks
         }
     }
 
-
+    /// <summary>
+    /// <para type="synopsis">This commandlet will get one or list of Firewall Rules associated with a particular NIC.</para>
+    /// </summary>
+    /// <example>
+    /// <para type="description">New-PBFirewallRule -DataCenterId [UUID] -ServerId [UUID] -NicId [UUID]</para>
+    /// <para type="description">Get-PBFirewallRule -DataCenterId [UUID] -ServerId [UUID] -NicId [UUID] -FirewallRuleId[UUID]</para>
+    /// </example>
     [Cmdlet(VerbsCommon.New, "PBFirewallRule")]
     [OutputType(typeof(FirewallRule))]
     public class NewFirewallRule : Cmdlet
     {
         #region Parameters
 
+        /// <summary>
+        /// <para type="description">Virtual data center Id. Mandatory parameter.</para>
+        /// </summary>
         [Parameter(Position = 0, HelpMessage = "Virtual data center Id", Mandatory = true, ValueFromPipeline = true)]
         public string DataCenterId { get; set; }
 
+        /// <summary>
+        /// <para type="description">Server Id. Mandatory parameter.</para>
+        /// </summary>
         [Parameter(Position = 1, HelpMessage = "Server Id", Mandatory = true, ValueFromPipeline = true)]
         public string ServerId { get; set; }
 
+        /// <summary>
+        /// <para type="description">Nic Id. Mandatory parameter.</para>
+        /// </summary>
         [Parameter(Position = 2, HelpMessage = "Nic Id", Mandatory = true, ValueFromPipeline = true)]
         public string NicId { get; set; }
 
+        /// <summary>
+        /// <para type="description">The protocol for the rule: TCP, UDP, ICMP, ANY. Mandatory parameter.</para>
+        /// </summary>
         [Parameter(Position = 3, HelpMessage = "The protocol for the rule: TCP, UDP, ICMP, ANY.", Mandatory = true, ValueFromPipeline = true)]
         public string Protocol { get; set; }
 
-        [Parameter(Position = 4, HelpMessage = "The name of the Firewall Rule.")]
+        /// <summary>
+        /// <para type="description">The name of the Firewall Rule.</para>
+        /// </summary>
+        [Parameter(Position = 4, HelpMessage = "The name of the Firewall Rule.", ValueFromPipeline = true)]
         public string Name { get; set; }
 
-        [Parameter(Position = 5, HelpMessage = "Only traffic originating from the respective MAC address is allowed. Valid format: aa:bb:cc:dd:ee:ff. Value null allows all source MAC address.")]
+        /// <summary>
+        /// <para type="description">Only traffic originating from the respective MAC address is allowed. Valid format: aa:bb:cc:dd:ee:ff. Value null allows all source MAC address.</para>
+        /// </summary>
+        [Parameter(Position = 5, HelpMessage = "Only traffic originating from the respective MAC address is allowed. Valid format: aa:bb:cc:dd:ee:ff. Value null allows all source MAC address.", ValueFromPipeline = true)]
         public string SourceMac { get; set; }
 
-        [Parameter(Position = 6, HelpMessage = "Only traffic originating from the respective IPv4 address is allowed. Value null allows all source IPs.")]
+        /// <summary>
+        /// <para type="description">Only traffic originating from the respective IPv4 address is allowed. Value null allows all source IPs.</para>
+        /// </summary>
+        [Parameter(Position = 6, HelpMessage = "Only traffic originating from the respective IPv4 address is allowed. Value null allows all source IPs.", ValueFromPipeline = true)]
         public string SourceIp { get; set; }
 
-        [Parameter(Position = 7, HelpMessage = "In case the target NIC has multiple IP addresses, only traffic directed to the respective IP address of the NIC is allowed. Value null allows all target IPs.")]
+        /// <summary>
+        /// <para type="description">In case the target NIC has multiple IP addresses, only traffic directed to the respective IP address of the NIC is allowed. Value null allows all target IPs.</para>
+        /// </summary>
+        [Parameter(Position = 7, HelpMessage = "In case the target NIC has multiple IP addresses, only traffic directed to the respective IP address of the NIC is allowed. Value null allows all target IPs.", ValueFromPipeline = true)]
         public string TargetIp { get; set; }
 
-        [Parameter(Position = 8, HelpMessage = "Defines the start range of the allowed port (from 1 to 65534) if protocol TCP or UDP is chosen. Leave portRangeStart and portRangeEnd value null to allow all ports.")]
+        /// <summary>
+        /// <para type="description">Defines the start range of the allowed port (from 1 to 65534) if protocol TCP or UDP is chosen. Leave portRangeStart and portRangeEnd value null to allow all ports.</para>
+        /// </summary>
+        [Parameter(Position = 8, HelpMessage = "Defines the start range of the allowed port (from 1 to 65534) if protocol TCP or UDP is chosen. Leave portRangeStart and portRangeEnd value null to allow all ports.", ValueFromPipeline = true)]
         public int PortRangeStart { get; set; }
 
-        [Parameter(Position = 9, HelpMessage = "Defines the end range of the allowed port (from 1 to 65534) if the protocol TCP or UDP is chosen. Leave portRangeStart and portRangeEnd null to allow all ports.")]
+        /// <summary>
+        /// <para type="description">Defines the start range of the allowed port (from 1 to 65534) if protocol TCP or UDP is chosen. Leave portRangeStar and portRangeEnd value null to allow all ports.</para>
+        /// </summary>
+        [Parameter(Position = 9, HelpMessage = "Defines the end range of the allowed port (from 1 to 65534) if the protocol TCP or UDP is chosen. Leave portRangeStart and portRangeEnd null to allow all ports.", ValueFromPipeline = true)]
         public int PortRangeEnd { get; set; }
 
-        [Parameter(Position = 10, HelpMessage = "Defines the allowed type (from 0 to 254) if the protocol ICMP is chosen. Value null allows all types.")]
+        /// <summary>
+        /// <para type="description">Defines the allowed type (from 0 to 254) if the protocol ICMP is chosen. Value null allows all types.</para>
+        /// </summary>
+        [Parameter(Position = 10, HelpMessage = "Defines the allowed type (from 0 to 254) if the protocol ICMP is chosen. Value null allows all types.", ValueFromPipeline = true)]
         public int IcmpType { get; set; }
 
-        [Parameter(Position = 11, HelpMessage = "Defines the allowed code (from 0 to 254) if protocol ICMP is chosen. Value null allows all codes.")]
+        /// <summary>
+        /// <para type="description">Defines the allowed code (from 0 to 254) if the protocol ICMP is chosen. Value null allows all types.</para>
+        /// </summary>
+        [Parameter(Position = 11, HelpMessage = "Defines the allowed code (from 0 to 254) if protocol ICMP is chosen. Value null allows all codes.", ValueFromPipeline = true)]
         public int IcmpCode { get; set; }
 
         #endregion
@@ -134,49 +195,95 @@ namespace Profitbricks
         }
     }
 
+    /// <summary>
+    /// <para type="synopsis">This commandlet will update Firewall rule properties.</para>
+    /// <para type="synopsis">Only parameters passed in the commandlet will be updated.</para>
+    /// </summary>
+    /// <example>
+    /// <para type="description">Set-PBFirewallRule -DataCenterId [UUID] -ServerId [UUID] -NicId [UUID] -FirewallRuleId [UUID] -Name [name]</para>
+    /// </example>
     [Cmdlet(VerbsCommon.Set, "PBFirewallRule")]
     [OutputType(typeof(FirewallRule))]
     public class SetFirewallRule : Cmdlet
     {
         #region Parameters
 
+        /// <summary>
+        /// <para type="description">Virtual data center Id. Mandatory parameter.</para>
+        /// </summary>
         [Parameter(Position = 0, HelpMessage = "Virtual data center Id", Mandatory = true, ValueFromPipeline = true)]
         public string DataCenterId { get; set; }
 
+        /// <summary>
+        /// <para type="description">Server Id. Mandatory parameter.</para>
+        /// </summary>
         [Parameter(Position = 1, HelpMessage = "Server Id", Mandatory = true, ValueFromPipeline = true)]
         public string ServerId { get; set; }
 
+        /// <summary>
+        /// <para type="description">Nic Id. Mandatory parameter.</para>
+        /// </summary>
         [Parameter(Position = 2, HelpMessage = "Nic Id", Mandatory = true, ValueFromPipeline = true)]
         public string NicId { get; set; }
 
+        /// <summary>
+        /// <para type="description">Firewall Rule Id. Mandatory parameter.</para>
+        /// </summary>
         [Parameter(Position = 3, HelpMessage = "Firewall Rule Id")]
         public string FirewallRuleId { get; set; }
 
+        /// <summary>
+        /// <para type="description">The protocol for the rule: TCP, UDP, ICMP, ANY. Mandatory parameter.</para>
+        /// </summary>
         [Parameter(Position = 4, HelpMessage = "The protocol for the rule: TCP, UDP, ICMP, ANY.", Mandatory = true, ValueFromPipeline = true)]
         public string Protocol { get; set; }
 
-        [Parameter(Position = 5, HelpMessage = "The name of the Firewall Rule.")]
+        /// <summary>
+        /// <para type="description">The name of the Firewall Rule.</para>
+        /// </summary>
+        [Parameter(Position = 5, HelpMessage = "The name of the Firewall Rule.", ValueFromPipeline = true)]
         public string Name { get; set; }
 
-        [Parameter(Position = 6, HelpMessage = "Only traffic originating from the respective MAC address is allowed. Valid format: aa:bb:cc:dd:ee:ff. Value null allows all source MAC address.")]
+        /// <summary>
+        /// <para type="description">Only traffic originating from the respective MAC address is allowed. Valid format: aa:bb:cc:dd:ee:ff. Value null allows all source MAC address.</para>
+        /// </summary>
+        [Parameter(Position = 6, HelpMessage = "Only traffic originating from the respective MAC address is allowed. Valid format: aa:bb:cc:dd:ee:ff. Value null allows all source MAC address.", ValueFromPipeline = true)]
         public string SourceMac { get; set; }
 
-        [Parameter(Position = 7, HelpMessage = "Only traffic originating from the respective IPv4 address is allowed. Value null allows all source IPs.")]
+        /// <summary>
+        /// <para type="description">Only traffic originating from the respective IPv4 address is allowed. Value null allows all source IPs.</para>
+        /// </summary>
+        [Parameter(Position = 7, HelpMessage = "Only traffic originating from the respective IPv4 address is allowed. Value null allows all source IPs.", ValueFromPipeline = true)]
         public string SourceIp { get; set; }
 
-        [Parameter(Position = 8, HelpMessage = "In case the target NIC has multiple IP addresses, only traffic directed to the respective IP address of the NIC is allowed. Value null allows all target IPs.")]
+        /// <summary>
+        /// <para type="description">In case the target NIC has multiple IP addresses, only traffic directed to the respective IP address of the NIC is allowed. Value null allows all target IPs.</para>
+        /// </summary>
+        [Parameter(Position = 8, HelpMessage = "In case the target NIC has multiple IP addresses, only traffic directed to the respective IP address of the NIC is allowed. Value null allows all target IPs.", ValueFromPipeline = true)]
         public string TargetIp { get; set; }
 
-        [Parameter(Position = 9, HelpMessage = "Defines the start range of the allowed port (from 1 to 65534) if protocol TCP or UDP is chosen. Leave portRangeStart and portRangeEnd value null to allow all ports.")]
+        /// <summary>
+        /// <para type="description">Defines the start range of the allowed port (from 1 to 65534) if protocol TCP or UDP is chosen. Leave portRangeStart and portRangeEnd value null to allow all ports.</para>
+        /// </summary>
+        [Parameter(Position = 9, HelpMessage = "Defines the start range of the allowed port (from 1 to 65534) if protocol TCP or UDP is chosen. Leave portRangeStart and portRangeEnd value null to allow all ports.", ValueFromPipeline = true)]
         public int? PortRangeStart { get; set; }
 
-        [Parameter(Position = 10, HelpMessage = "Defines the end range of the allowed port (from 1 to 65534) if the protocol TCP or UDP is chosen. Leave portRangeStart and portRangeEnd null to allow all ports.")]
+        /// <summary>
+        /// <para type="description">Defines the end range of the allowed port (from 1 to 65534) if the protocol TCP or UDP is chosen. Leave portRangeStart and portRangeEnd null to allow all ports.</para>
+        /// </summary>
+        [Parameter(Position = 10, HelpMessage = "Defines the end range of the allowed port (from 1 to 65534) if the protocol TCP or UDP is chosen. Leave portRangeStart and portRangeEnd null to allow all ports.", ValueFromPipeline = true)]
         public int? PortRangeEnd { get; set; }
 
-        [Parameter(Position = 11, HelpMessage = "Defines the allowed type (from 0 to 254) if the protocol ICMP is chosen. Value null allows all types.")]
+        /// <summary>
+        /// <para type="description">Defines the allowed type (from 0 to 254) if the protocol ICMP is chosen. Value null allows all types.</para>
+        /// </summary>
+        [Parameter(Position = 11, HelpMessage = "Defines the allowed type (from 0 to 254) if the protocol ICMP is chosen. Value null allows all types.", ValueFromPipeline = true)]
         public int? IcmpType { get; set; }
 
-        [Parameter(Position = 12, HelpMessage = "Defines the allowed code (from 0 to 254) if protocol ICMP is chosen. Value null allows all codes.")]
+        /// <summary>
+        /// <para type="description">Defines the allowed code (from 0 to 254) if protocol ICMP is chosen. Value null allows all codes.</para>
+        /// </summary>
+        [Parameter(Position = 12, HelpMessage = "Defines the allowed code (from 0 to 254) if protocol ICMP is chosen. Value null allows all codes.", ValueFromPipeline = true)]
         public int? IcmpCode { get; set; }
 
         #endregion
@@ -217,22 +324,40 @@ namespace Profitbricks
         }
     }
 
+    /// <summary>
+    /// <para type="synopsis">This commandlet will remove the specified Firewall rule </para>
+    /// </summary>
+    /// <example>
+    /// <para type="description">Remove-PBFirewallRule -DataCenterId [UUID] -ServerId [UUID] -NicId [UUID] -FirewallRuleId [UUID]</para>
+    /// </example>
     [Cmdlet(VerbsCommon.Remove, "PBFirewallRule")]
     [OutputType(typeof(FirewallRule))]
     public class RemoveFirewallRule : Cmdlet
     {
         #region Parameters
 
+        /// <summary>
+        /// <para type="description">Virtual data center Id. Mandatory parameter.</para>
+        /// </summary>
         [Parameter(Position = 0, HelpMessage = "Virtual data center Id", Mandatory = true, ValueFromPipeline = true)]
         public string DataCenterId { get; set; }
 
-        [Parameter(Position = 0, HelpMessage = "Server Id", Mandatory = true, ValueFromPipeline = true)]
+        /// <summary>
+        /// <para type="description">Server Id. Mandatory parameter.</para>
+        /// </summary>
+        [Parameter(Position = 1, HelpMessage = "Server Id", Mandatory = true, ValueFromPipeline = true)]
         public string ServerId { get; set; }
 
-        [Parameter(Position = 0, HelpMessage = "Nic Id", Mandatory = true, ValueFromPipeline = true)]
+        /// <summary>
+        /// <para type="description">Nic Id. Mandatory parameter.</para>
+        /// </summary>
+        [Parameter(Position = 2, HelpMessage = "Nic Id", Mandatory = true, ValueFromPipeline = true)]
         public string NicId { get; set; }
 
-        [Parameter(Position = 0, HelpMessage = "Firewall Rule Id", Mandatory = true, ValueFromPipeline = true)]
+        /// <summary>
+        /// <para type="description">Firewall Rule Id. Mandatory parameter.</para>
+        /// </summary>
+        [Parameter(Position = 3, HelpMessage = "Firewall Rule Id", ValueFromPipeline = true)]
         public string FirewallRuleId { get; set; }
 
         #endregion
