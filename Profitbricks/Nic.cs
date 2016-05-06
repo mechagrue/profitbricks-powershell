@@ -10,8 +10,8 @@ using System.Threading.Tasks;
 namespace Profitbricks
 {
     /// <summary>
-    /// <para type="synopsis">This commandlet will get one or list of Network interfaces (NIC).</para>
-    /// <para type="synopsis">If NicId parameter is provided then it will return only the specified NIC.</para>
+    /// <para type="synopsis">This commandlet will get one or a list of Network interfaces (NIC).</para>
+    /// <para type="synopsis">If the NicId parameter is provided then it will return only the specified NIC.</para>
     /// </summary>
     /// <example>
     /// <para type="description">Get-PBLocation </para>
@@ -24,19 +24,19 @@ namespace Profitbricks
         #region Parameters
 
         /// <summary>
-        /// <para type="description">Virtual data center Id. Mandatory parameter.</para>
+        /// <para type="description">Virtual data center ID. Mandatory parameter.</para>
         /// </summary>
         [Parameter(Position = 0, HelpMessage = "Virtual data center Id", Mandatory = true, ValueFromPipeline = true)]
         public string DataCenterId { get; set; }
 
         /// <summary>
-        /// <para type="description">Server Id. Mandatory parameter.</para>
+        /// <para type="description">Server ID. Mandatory parameter.</para>
         /// </summary>
         [Parameter(Position = 1, HelpMessage = "Server Id", Mandatory = true, ValueFromPipeline = true)]
         public string ServerId { get; set; }
 
         /// <summary>
-        /// <para type="description">Nic ID.</para>
+        /// <para type="description">NIC ID.</para>
         /// </summary>
         [Parameter(Position = 2, HelpMessage = "Nic Id", ValueFromPipeline = true)]
         public string NicId { get; set; }
@@ -71,7 +71,7 @@ namespace Profitbricks
     }
 
     /// <summary>
-    /// <para type="synopsis">This commandlet will add NIC to the target server.</para>
+    /// <para type="synopsis">This commandlet will add a NIC to the target server.</para>
     /// </summary>
     /// <example>
     /// <para type="description">New-PBNic -DataCenterId [UUID] -ServerId [UUID] -LanId [UUID] </para>
@@ -83,13 +83,13 @@ namespace Profitbricks
         #region Parameters
 
         /// <summary>
-        /// <para type="description">Virtual data center Id. Mandatory parameter.</para>
+        /// <para type="description">Virtual data center ID. Mandatory parameter.</para>
         /// </summary>
         [Parameter(Position = 0, HelpMessage = "Virtual data center Id", Mandatory = true, ValueFromPipeline = true)]
         public string DataCenterId { get; set; }
 
         /// <summary>
-        /// <para type="description">Server Id. Mandatory parameter.</para>
+        /// <para type="description">Server ID. Mandatory parameter.</para>
         /// </summary>
         [Parameter(Position = 1, HelpMessage = "Server Id", Mandatory = true, ValueFromPipeline = true)]
         public string ServerId { get; set; }
@@ -119,7 +119,7 @@ namespace Profitbricks
         public bool? DHCP { get; set; }
 
         /// <summary>
-        /// <para type="description">Once you add a firewall rule this will reflect a true value.</para>
+        /// <para type="description">Once you add a firewall rule, this will reflect a true value.</para>
         /// </summary>
         [Parameter(Position = 6, HelpMessage = "Once you add a firewall rule this will reflect a true value.", ValueFromPipeline = true)]
         public bool? FirewallActive { get; set; }
@@ -170,19 +170,19 @@ namespace Profitbricks
         #region Parameters
 
         /// <summary>
-        /// <para type="description">Virtual data center Id. Mandatory parameter.</para>
+        /// <para type="description">Virtual data center ID. Mandatory parameter.</para>
         /// </summary>
         [Parameter(Position = 0, HelpMessage = "Virtual data center Id", Mandatory = true, ValueFromPipeline = true)]
         public string DataCenterId { get; set; }
 
         /// <summary>
-        /// <para type="description">Server Id. Mandatory parameter.</para>
+        /// <para type="description">Server ID. Mandatory parameter.</para>
         /// </summary>
         [Parameter(Position = 1, HelpMessage = "Server Id", Mandatory = true, ValueFromPipeline = true)]
         public string ServerId { get; set; }
 
         /// <summary>
-        /// <para type="description">Nic Id.</para>
+        /// <para type="description">NIC ID.</para>
         /// </summary>
         [Parameter(Position = 2, HelpMessage = "Nic Id", Mandatory = true, ValueFromPipeline = true)]
         public string NicId { get; set; }
@@ -207,7 +207,7 @@ namespace Profitbricks
     }
 
     /// <summary>
-    /// <para type="synopsis">This commandlet will update Nic properties.</para>
+    /// <para type="synopsis">This commandlet will update NIC properties.</para>
     /// <para type="synopsis">Only parameters passed in the commandlet will be updated.</para>
     /// </summary>
     /// <example>
@@ -220,19 +220,19 @@ namespace Profitbricks
         #region Parameters
 
         /// <summary>
-        /// <para type="description">Virtual data center Id. Mandatory parameter.</para>
+        /// <para type="description">Virtual data center ID. Mandatory parameter.</para>
         /// </summary>
         [Parameter(Position = 0, HelpMessage = "Virtual data center Id", Mandatory = true, ValueFromPipeline = true)]
         public string DataCenterId { get; set; }
 
         /// <summary>
-        /// <para type="description">Server Id. Mandatory parameter.</para>
+        /// <para type="description">Server ID. Mandatory parameter.</para>
         /// </summary>
         [Parameter(Position = 1, HelpMessage = "Server Id", Mandatory = true, ValueFromPipeline = true)]
         public string ServerId { get; set; }
 
         /// <summary>
-        /// <para type="description">Nic Id. Mandatory parameter.</para>
+        /// <para type="description">NIC ID. Mandatory parameter.</para>
         /// </summary>
         [Parameter(Position = 2, HelpMessage = "Nic Id", Mandatory = true, ValueFromPipeline = true)]
         public string NicId { get; set; }
