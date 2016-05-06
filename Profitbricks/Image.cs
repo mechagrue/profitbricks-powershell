@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace Profitbricks
 {
     /// <summary>
-    /// <para type="synopsis">This commandlet will get one or list of images within the data center.</para>
+    /// <para type="synopsis">This commandlet will get one or a list of images within the data center.</para>
     /// <para type="synopsis">If ImageId parameter is provided then it will return only the specified snapshot.</para>
     /// </summary>
     /// <example>
@@ -24,7 +24,7 @@ namespace Profitbricks
         #region Parameters
 
         /// <summary>
-        /// <para type="description">Image Id.</para>
+        /// <para type="description">Image ID.</para>
         /// </summary>
         [Parameter(HelpMessage ="Image Id", Position = 0, ValueFromPipeline = true)]
         public string ImageId { get; set; }
