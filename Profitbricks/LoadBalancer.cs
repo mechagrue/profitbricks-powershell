@@ -10,8 +10,8 @@ using System.Threading.Tasks;
 namespace Profitbricks
 {
     /// <summary>
-    /// <para type="synopsis">This commandlet retrieves a list of loadbalancers within the Virtual data center.</para>
-    /// <para type="synopsis">If LoadbalancerId parameter is provided then it will return only the specified loadbalancer.</para>
+    /// <para type="synopsis">This commandlet retrieves a list of load balancers within the virtual data center.</para>
+    /// <para type="synopsis">If the LoadbalancerId parameter is provided then it will return only the specified load balancer.</para>
     /// </summary>
     ///<example>
     /// <para type="example">Get-PBLoadbalancer -DataCenterId [UUID] -LoadbalancerId [UUID]</para>
@@ -23,13 +23,13 @@ namespace Profitbricks
         #region Parameters
 
         /// <summary>
-        /// <para type="description">Virtual data center Id. Mandatory Parameter</para>
+        /// <para type="description">Virtual data center ID. Mandatory parameter.</para>
         /// </summary>
         [Parameter(Position = 0, HelpMessage = "Virtual data center Id", Mandatory = true, ValueFromPipeline = true)]
         public string DataCenterId { get; set; }
 
         /// <summary>
-        /// <para type="description">Loadbalancer Id.</para>
+        /// <para type="description">Loadbalancer ID.</para>
         /// </summary>
         [Parameter(Position = 1, HelpMessage = "Loadbalancer Id", ValueFromPipeline = true)]
         public string LoadbalancerId { get; set; } 
@@ -63,8 +63,8 @@ namespace Profitbricks
     }
 
     /// <summary>
-    /// <para type="synopsis">This commandlet creates a loadbalancer within the data center. </para>
-    /// <para type="synopsis">Loadbalancers can be used for public or private IP traffic.</para>
+    /// <para type="synopsis">This commandlet creates a load balancer within the data center. </para>
+    /// <para type="synopsis">Load balancers can be used for public or private IP traffic.</para>
     /// </summary>
     ///<example>
     /// <para type="example">New-PBLoadbalancer -DataCenterId [UUID] -Name [name]</para>
@@ -76,25 +76,25 @@ namespace Profitbricks
         #region Parameters
 
         /// <summary>
-        /// <para type="description">Virtual data center Id. Mandatory Parameter</para>
+        /// <para type="description">Virtual data center ID. Mandatory parameter.</para>
         /// </summary>
         [Parameter(Position = 0,HelpMessage = "Virtual data center ID", Mandatory = true, ValueFromPipeline = true)]
         public string DataCenterId { get; set; }
 
         /// <summary>
-        /// <para type="description">Loadbalancer name. Mandatory Parameter</para>
+        /// <para type="description">Load balancer name. Mandatory parameter.</para>
         /// </summary>
         [Parameter(Position = 1,HelpMessage = "Loadbalancer Name", Mandatory = true, ValueFromPipeline = true)]
         public string Name { get; set; }
 
         /// <summary>
-        /// <para type="description">IPv4 address of the loadbalancer. All attached NICs will inherit this IP.	</para>
+        /// <para type="description">IPv4 address of the load balancer. All attached NICs will inherit this IP.	</para>
         /// </summary>
         [Parameter(Position = 2, HelpMessage = "IPv4 address of the loadbalancer.", ValueFromPipeline = true)]
         public string Ip { get; set; }
 
         /// <summary>
-        /// <para type="description">Indicates if the loadbalancer will reserve an IP using DHCP.	</para>
+        /// <para type="description">Indicates if the load balancer will reserve an IP using DHCP.	</para>
         /// </summary>
         [Parameter(Position = 3, HelpMessage = "Indicates if the loadbalancer will reserve an IP using DHCP.", ValueFromPipeline = true)]
         public bool? Dhcp { get; set; }
@@ -129,7 +129,7 @@ namespace Profitbricks
     }
 
     /// <summary>
-    /// <para type="synopsis">This commandlet Deletes the specified loadbalancer.</para>
+    /// <para type="synopsis">This commandlet deletes the specified load balancer.</para>
     /// </summary>
     ///<example>
     /// <para type="example">Remove-PBLoadbalancer -DataCenterId [UUID] -LoadbalancerId [UUID]</para>
@@ -141,13 +141,13 @@ namespace Profitbricks
         #region Parameters
 
         /// <summary>
-        /// <para type="description">Virtual data center Id. Mandatory Parameter</para>
+        /// <para type="description">Virtual data center ID. Mandatory parameter.</para>
         /// </summary>
         [Parameter(Position = 0, HelpMessage = "Virtual data center Id", Mandatory = true, ValueFromPipeline = true)]
         public string DataCenterId { get; set; }
 
         /// <summary>
-        /// <para type="description">Loadbalancer Id. Mandatory Parameter</para>
+        /// <para type="description">Loadbalancer ID. Mandatory parameter.</para>
         /// </summary>
         [Parameter(Position = 1, HelpMessage = "Loadbalancer Id", Mandatory = true, ValueFromPipeline = true)]
         public string LoadbalancerId { get; set; }
@@ -172,7 +172,7 @@ namespace Profitbricks
     }
 
     /// <summary>
-    /// <para type="synopsis">This commandlet will update Loadbalancer properties.</para>
+    /// <para type="synopsis">This commandlet will update load balancer properties.</para>
     /// <para type="synopsis">Only parameters passed in the commandlet will be updated.</para>
     /// </summary>
     /// <example>
@@ -185,31 +185,31 @@ namespace Profitbricks
         #region Parameters
 
         /// <summary>
-        /// <para type="description">Virtual data center Id. Mandatory Parameter</para>
+        /// <para type="description">Virtual data center ID. Mandatory parameter.</para>
         /// </summary>
         [Parameter(Position = 0, HelpMessage = "Virtual data center Id", Mandatory = true, ValueFromPipeline = true)]
         public string DataCenterId { get; set; }
 
         /// <summary>
-        /// <para type="description">Loadbalancer Id. Mandatory Parameter</para>
+        /// <para type="description">Load balancer ID. Mandatory parameter.</para>
         /// </summary>
         [Parameter(Position = 1, HelpMessage = "Loadbalancer Id", Mandatory = true, ValueFromPipeline = true)]
         public string LoadbalancerId { get; set; }
 
         /// <summary>
-        /// <para type="description">Loadbalancer Name.</para>
+        /// <para type="description">Load balancer name.</para>
         /// </summary>
         [Parameter(Position = 2, HelpMessage = "Loadbalancer Name", ValueFromPipeline = true)]
         public string Name { get; set; }
 
         /// <summary>
-        /// <para type="description">The IP of the loadbalancer.	</para>
+        /// <para type="description">The IP of the load balancer.	</para>
         /// </summary>
         [Parameter(Position = 3, HelpMessage = "The IP of the loadbalancer.	", ValueFromPipeline = true)]
         public string Ip { get; set; }
 
         /// <summary>
-        /// <para type="description">Indicates if the loadbalancer will reserve an IP using DHCP.</para>
+        /// <para type="description">Indicates if the load balancer will reserve an IP using DHCP.</para>
         /// </summary>
         [Parameter(Position =  4,HelpMessage = "Indicates if the loadbalancer will reserve an IP using DHCP.")]
         public bool? Dhcp { get; set; }
@@ -255,13 +255,13 @@ namespace Profitbricks
         #region Parameters
 
         /// <summary>
-        /// <para type="description">Virtual data center Id. Mandatory Parameter</para>
+        /// <para type="description">Virtual data center Id. Mandatory parameter.</para>
         /// </summary>
         [Parameter(Position = 0, HelpMessage = "Virtual data center Id", Mandatory = true, ValueFromPipeline = true)]
         public string DataCenterId { get; set; }
 
         /// <summary>
-        /// <para type="description">Load balancer Id. Mandatory Parameter</para>
+        /// <para type="description">Load balancer ID. Mandatory parameter.</para>
         /// </summary>
         [Parameter(Position = 1, HelpMessage = "Loadbalancer Id", Mandatory = true, ValueFromPipeline = true)]
         public string LoadbalancerId { get; set; }
@@ -286,7 +286,7 @@ namespace Profitbricks
     }
 
     /// <summary>
-    /// <para type="synopsis">This commandlet will associate a NIC to a Load Balancer, enabling the NIC to participate in load-balancing.</para>
+    /// <para type="synopsis">This commandlet will associate a NIC to a load balancer, enabling the NIC to participate in load balancing.</para>
     /// </summary>
     /// <example>
     /// <para type="description">Set-PBNicToLoadbalancer -DataCenterId [UUID] -LoadbalancerId [UUID] -NicId [UUID]</para>
@@ -298,19 +298,19 @@ namespace Profitbricks
         #region Parameters
 
         /// <summary>
-        /// <para type="description">Virtual data center Id. Mandatory Parameter</para>
+        /// <para type="description">Virtual data center ID. Mandatory parameter.</para>
         /// </summary>
         [Parameter(Position = 0, HelpMessage = "Virtual data center Id", Mandatory = true, ValueFromPipeline = true)]
         public string DataCenterId { get; set; }
 
         /// <summary>
-        /// <para type="description">Load balancer Id. Mandatory Parameter</para>
+        /// <para type="description">Load balancer ID. Mandatory parameter.</para>
         /// </summary>
         [Parameter(Position = 1, HelpMessage = "Loadbalancer Id", Mandatory = true, ValueFromPipeline = true)]
         public string LoadbalancerId { get; set; }
 
         /// <summary>
-        /// <para type="description">Network interface Id. Mandatory Parameter</para>
+        /// <para type="description">Network interface ID. Mandatory parameter.</para>
         /// </summary>
         [Parameter(Position = 2, HelpMessage = "Nic Id", Mandatory = true, ValueFromPipeline = true)]
         public string NicId { get; set; }
@@ -347,19 +347,19 @@ namespace Profitbricks
         #region Parameters
 
         /// <summary>
-        /// <para type="description">Virtual data center Id. Mandatory Parameter</para>
+        /// <para type="description">Virtual data center ID. Mandatory parameter.</para>
         /// </summary>
         [Parameter(Position = 0, HelpMessage = "Virtual data center Id", Mandatory = true, ValueFromPipeline = true)]
         public string DataCenterId { get; set; }
 
         /// <summary>
-        /// <para type="description">Load balancer Id. Mandatory Parameter</para>
+        /// <para type="description">Load balancer ID. Mandatory parameter.</para>
         /// </summary>
         [Parameter(Position = 1, HelpMessage = "Loadbalancer Id", Mandatory = true, ValueFromPipeline = true)]
         public string LoadbalancerId { get; set; }
 
         /// <summary>
-        /// <para type="description">Network interface Id. Mandatory Parameter</para>
+        /// <para type="description">Network interface ID. Mandatory parameter.</para>
         /// </summary>
         [Parameter(Position = 2, HelpMessage = "Nic Id", Mandatory = true, ValueFromPipeline = true)]
         public string NicId { get; set; }
