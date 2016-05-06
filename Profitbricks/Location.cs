@@ -9,12 +9,23 @@ using System.Threading.Tasks;
 
 namespace Profitbricks
 {
+    /// <summary>
+    /// <para type="synopsis">This commandlet will get one or list of Locations.</para>
+    /// <para type="synopsis">If LocationID parameter is provided then it will return only the specified snapshot.</para>
+    /// </summary>
+    /// <example>
+    /// <para type="description">Get-PBImage </para>
+    /// <para type="description">Get-PBImage -ImageId[UUID]</para>
+    /// </example>
     [Cmdlet(VerbsCommon.Get, "PBLocation")]
     [OutputType(typeof(Location))]
     public class GetLocation : Cmdlet
     {
         #region Parameters
 
+        /// <summary>
+        /// <para type="description">Location Id.</para>
+        /// </summary>
         [Parameter(HelpMessage ="Location Id",Position =0,ValueFromPipeline = true)]
         public string LocationId { get; set; }
 
