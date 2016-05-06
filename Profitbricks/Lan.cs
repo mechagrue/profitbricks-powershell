@@ -10,8 +10,8 @@ using System.Threading.Tasks;
 namespace Profitbricks
 {
     /// <summary>
-    /// <para type="synopsis">This commandlet will get one or list of LANs within the data center.</para>
-    /// <para type="synopsis">If LanId parameter is provided then it will return only the specified Lan.</para>
+    /// <para type="synopsis">This commandlet will get one or a list of LANs within the data center.</para>
+    /// <para type="synopsis">If the LanId parameter is provided then it will return only the specified LAN.</para>
     /// </summary>
     /// <example>
     /// <para type="description">Get-PBLan -DatacenterId [UUID]</para>
@@ -24,13 +24,13 @@ namespace Profitbricks
         #region Parameters
 
         /// <summary>
-        /// <para type="description">Virtual data center Id. Mandatory parameter.</para>
+        /// <para type="description">Virtual data center ID. Mandatory parameter.</para>
         /// </summary>
         [Parameter(Position = 0, HelpMessage = "Virtual data center Id", Mandatory = true, ValueFromPipeline = true)]
         public string DataCenterId { get; set; }
 
         /// <summary>
-        /// <para type="description">Lan Id.</para>
+        /// <para type="description">Lan ID.</para>
         /// </summary>
         [Parameter(Position = 1, HelpMessage = "Lan Id", ValueFromPipeline = true)]
         public string LanId { get; set; }
@@ -64,7 +64,7 @@ namespace Profitbricks
     }
 
     /// <summary>
-    /// <para type="synopsis">This commandlet create a LAN within a data center.</para>
+    /// <para type="synopsis">This commandlet creates a LAN within a data center.</para>
     /// </summary>
     /// <example>
     /// <para type="description">New-PBLan -DatacenterId [UUID]-Name [name]</para>
@@ -76,7 +76,7 @@ namespace Profitbricks
         #region Parameters
 
         /// <summary>
-        /// <para type="description">Virtual data center Id. Mandatory parameter.</para>
+        /// <para type="description">Virtual data center ID. Mandatory parameter.</para>
         /// </summary>
         [Parameter(Position = 0, HelpMessage = "Virtual data center Id", Mandatory = true, ValueFromPipeline = true)]
         public string DataCenterId { get; set; }
@@ -120,7 +120,7 @@ namespace Profitbricks
     }
 
     /// <summary>
-    /// <para type="synopsis">This commandlet remove the specified LAN froma a data center.</para>
+    /// <para type="synopsis">This commandlet removes the specified LAN froma a data center.</para>
     /// </summary>
     /// <example>
     /// <para type="description">Remove-PBLan -DatacenterId [UUID] -LanId [UUID]</para>
@@ -132,13 +132,13 @@ namespace Profitbricks
         #region Parameters
 
         /// <summary>
-        /// <para type="description">Virtual data center Id. Mandatory parameter.</para>
+        /// <para type="description">Virtual data center ID. Mandatory parameter.</para>
         /// </summary>
         [Parameter(Position = 0, HelpMessage = "Virtual data center Id", Mandatory = true, ValueFromPipeline = true)]
         public string DataCenterId { get; set; }
 
         /// <summary>
-        /// <para type="description">Lan Id. Mandatory parameter.</para>
+        /// <para type="description">Lan ID. Mandatory parameter.</para>
         /// </summary>
         [Parameter(Position = 1, HelpMessage = "LAN Id", Mandatory = true, ValueFromPipeline = true)]
         public string LanId { get; set; }
@@ -161,7 +161,7 @@ namespace Profitbricks
     }
 
     /// <summary>
-    /// <para type="synopsis">This commandlet will update Lan properties.</para>
+    /// <para type="synopsis">This commandlet will update LAN properties.</para>
     /// <para type="synopsis">Only parameters passed in the commandlet will be updated.</para>
     /// </summary>
     /// <example>
@@ -174,13 +174,13 @@ namespace Profitbricks
         #region Parameters
 
         /// <summary>
-        /// <para type="description">Virtual data center Id. Mandatory parameter.</para>
+        /// <para type="description">Virtual data center ID. Mandatory parameter.</para>
         /// </summary>
         [Parameter(Position = 0, HelpMessage = "Virtual data center Id", Mandatory = true, ValueFromPipeline = true)]
         public string DataCenterId { get; set; }
 
         /// <summary>
-        /// <para type="description">Lan Id. Mandatory parameter.</para>
+        /// <para type="description">Lan ID. Mandatory parameter.</para>
         /// </summary>
         [Parameter(Position = 1, HelpMessage = "LAN Id", Mandatory = true, ValueFromPipeline = true)]
         public string LanId { get; set; }
