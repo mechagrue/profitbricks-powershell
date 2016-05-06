@@ -5,7 +5,7 @@
 * [Getting Started](#getting-started)
 * [Installation](#installation)
 * [Overview](#overview)
-* [How To:](#how-tos)
+* [Usage](#usage)
     * [Create Data Center](#create-data-center)
     * [Create Server](#create-server)
     * [Update Server](#update-server)
@@ -17,36 +17,28 @@
     * [List Snapshots](#list-snapshots)
     * [Update Snapshot](#update-snapshot)
     * [Delete Snapshot](#delete-snapshot)
-* [Reference](#reference)
-    * [Data Center](#data-center)
-    * [Server](#server)
-    * [Volume](#volume)
-    * [Snapshot](#snapshot)
-    * [Load Balancer](#load-balancer)
-    * [Image](#image)
-    * [NIC](#nic)
-    * [IP Block](#ip-block)
-* [Support](#support)
+    * [List All Commandlets](#list-all-commandlets)
+    * [Get Help for a Commandlet](#get-help-for-a-commandlet)
 
 ## Concepts
 
-Profitbricks Poweshell module wraps the [ProfitBricks REST API](https://devops.profitbricks.com/api/rest/) allowing you to interact with it from a command-line interface.
+Profitbricks Poweshell module wraps the [ProfitBricks REST API](https://devops.profitbricks.com/api/rest/), allowing you to interact with it from a command-line interface.
 
 ## Getting Started
 
-Before you begin you will need to have [signed-up](https://www.profitbricks.com/signup/) for a ProfitBricks account. The credentials you establish during sign-up will be used to authenticate against the [ProfitBricks API](https://devops.profitbricks.com/api/rest/).
+Before you begin you will need to have [signed up](https://www.profitbricks.com/signup/) for a ProfitBricks account. The credentials you establish during sign-up will be used to authenticate against the [ProfitBricks API](https://devops.profitbricks.com/api/rest/).
 
 ## Installation
 
-Download the [Profitbricks.Zip](https://github.com/StackPointCloud/profitbricks-powershell/releases/download/v1.0.0/Profitbricks.zip) and extract all. Use one of the followimg options to make the module availible for PowerShell:
+Download the [Profitbricks.zip](https://github.com/StackPointCloud/profitbricks-powershell/releases/download/v1.0.0/Profitbricks.zip) file and extract all. Use one of the following options to make the module available for PowerShell:
 
-1. Place the resulting folder `Profitbricks` (does contain 3 Files) in `%USERPROFILE%\Documents\WindowsPowerShell\Modules\` will auto load the module on PowerShell start for the User.
-2. Place the resulting folder `Profitbricks` (does contain 3 Files) in `%SYSTEMROT%\System32\WindowsPowerShell\v1.0\Modules\` will make the module system wide availible (not recommended)
-3. Place the resulting folder in any folder ouf your choice and extend the eviromet variable `PSModulePath` by this folder will make the module system wide availible. 
+1. Place the resulting folder `Profitbricks` (contains 3 files) in `%USERPROFILE%\Documents\WindowsPowerShell\Modules\` to auto-load the module on PowerShell start for the user.
+2. Place the resulting folder `Profitbricks` (contains 3 Files) in `%SYSTEMROT%\System32\WindowsPowerShell\v1.0\Modules\` to make the module available system-wide (not recommended).
+3. Place the resulting folder in any folder of your choice and extend the environment variable `PSModulePath` by this folder to make the module available system-wide. 
 
 ## Configuration
 
-Before using the ProfitBrick's Powershell module to perform any operations, we'll need to set our credentials:
+Before using the ProfitBricks Powershell module to perform any operations, we'll need to set our credentials:
 
 ```
 $SecurePassword = "PB_PASSWORD" | ConvertTo-SecureString -AsPlainText -Force
@@ -71,16 +63,16 @@ At line:9 char:1
     + FullyQualifiedErrorId : 406,Profitbricks.SetProfitbricks
 ```
 
-After successful authentication the credentials will be stored for the duration of Powershell session.
+After successful authentication the credentials will be stored for the duration of  the PowerShell session.
 
 
-# How To's:
+## Usage
 
 These examples assume that you don't have any resources provisioned under your account. The first thing we will want to do is create a data center to hold all of our resources.
 
-#Datacenter
+### Create Data Center
 
-We need to supply some parameters to get our first data center created. In this case, we will set the location to 'us/las' so that this data center is created under the [DevOps Data Center](https://devops.profitbricks.com/tutorials/devops-data-center-information/). Other valid locations can be determined by reviewing the [REST API Documentation](https://devops.profitbricks.com/api/rest/#locations). That documentation is an excellent resource since that is what the Profitbricks Powershell module is calling to complete these operations.
+We need to supply some parameters to get our first data center created. In this case, we will set the location to `us/las` so that this data center is created under the [DevOps Data Center](https://devops.profitbricks.com/tutorials/devops-data-center-information/). Other valid locations can be determined by reviewing the [REST API Documentation](https://devops.profitbricks.com/api/rest/#locations). That documentation is an excellent resource since that is what the Profitbricks Powershell module is calling to complete these operations.
 
 ```
 >$datacenter =  New-PBDatacenter -Name "Example datacenter" -Description "Example description" -Location "us/las"
@@ -111,15 +103,17 @@ Entities   :
 Request    : https://api.profitbricks.com/rest/v2/requests/d2cee0fc-a984-4d88-b56e-68203ad61660/status
 ```
 
-Et voilà, we've successfully provisioned a data center. Notice the "Id" that was returned. That UUID was assigned to our new data center and will be needed for other operations. The "RequestID" that was returned can be used to check on the status of any `create` or `update` operations.
+Voila, we have successfully provisioned a data center. 
+
+Notice the "Id" which was returned. That UUID was assigned to our new data center and will be needed for other operations. The "RequestID" that was returned can be used to check on the status of any `create` or `update` operations.
 
 ```
 Get-Datacenter -DataCenterId [dbe936f8-a536-49c5-b864-cec842e3ee65]		
 ```
 
-## Create Server
+### Create Server
 
-Next we'll create a server in the data center. This time we have to pass the 'Id' for the data center in, along with some other relevant properties (processor cores, memory, boot volume or boot CD-ROM) for the new server.
+Next we will create a server in the data center. This time we have to pass the 'Id' for the data center, along with some other relevant properties (processor cores, memory, boot volume or boot CD-ROM) for the new server.
 
 ```
 $server = New-PBServer -DataCenterId $datacenter.Id -Name "server_test" -Cores 1 -Ram 256 
@@ -154,9 +148,9 @@ Request    : https://api.profitbricks.com/rest/v2/requests/3e72e83b-6e8b-43c4-bc
 
 ```
 
-## Update Server
+### Update Server
 
-Whoops, we didn't assign enough memory to our instance. Lets go ahead and update the server to increase the amount of memory it has assigned. We'll need the datacenterid, the id of the server we are updating, along with the parameters that we want to change.
+Whoops, we didn't assign enough memory to our instance. Let's go ahead and update the server to increase the amount of memory it has assigned. We will need the DataCenterId, the ID of the server we are updating, and the parameters we want to change.
 
 ```
 $server = Set-PBServer -DataCenterId $datacenter.Id -ServerId $server.Id -Ram 1024
@@ -164,9 +158,9 @@ $server.Properties.Ram
 1024
 ```
 
-## List Servers
+### List Servers
 
-Lets take a look at the list of servers in our data center. There are a couple more listed in here for demonstration purposes.
+Let's take a look at the list of servers in our data center. There are a few more listed here for demonstration purposes.
 
 ```
 Get-PBServer -DataCenterId dbe936f8-a536-49c5-b864-cec842e3ee65 | Format-Table
@@ -177,9 +171,12 @@ cf2b3019-351c-438b-a5f8-b4f323fc9f23 server https://api.profitbricks.com/rest/v2
 3e7c254f-aeb6-481e-a594-1267cc19cac5 server https://api.profitbricks.com/rest/v2/datacenters/dbe936f8-a536-49c5-b864-cec842e3ee65/servers/3e7c254f-aeb6-481e-a594-1267c...
 ```
 
-## Create Volume
+### Create Volume
 
-Now that we have a server provisioned, it needs some storage. We'll specify a size for this storage volume in GB as well as set the 'bus' and 'licencetype'. The 'bus' setting can have a serious performance impact and you'll want to use VIRTIO when possible. Using VIRTIO may require drivers to be installed depending on the OS you plan to install. The 'licencetype' impacts billing rate, as there is a surcharge for running certain OS types.
+Now that we have a server provisioned, it needs some storage. We will specify a size for this storage volume in GB as well as set the `bus` and `licencetype`. 
+
+* The `bus` setting can have a serious performance impact. You will want to use VIRTIO when possible. Using VIRTIO may require drivers to be installed depending on the OS you plan to install. 
+* The `licencetype` impacts billing rate, as there is a surcharge for running certain OS types.
 
 ```
 $volume = New-PBVolume -DataCenterId $datacenter.Id -Size 5 -Type HDD -ImageId 646023fb-f7bd-11e5-b7e8-52540005ab80 -Name "test_volume"
@@ -191,9 +188,9 @@ Id                                   Type   Href
 
 ```
 
-## Attach Volume
+### Attach Volume
 
-The volume we've created is not yet connected or attached to a server. To accomplish that we'll use the `dcid` and `serverid` values returned from the previous commands:
+The volume we created is not yet connected or attached to a server. To accomplish that, use the `dcid` and `serverid` values returned from the previous commands:
 
 ```
 $attachedvolume = Attach-PBVolume -DataCenterId $datacenter.Id -ServerId $newServer.Id -VolumeId $volume.Id
@@ -204,7 +201,7 @@ Id                                   Type   Href
 12629ab1-20e4-4751-9d92-94986d424eec volume https://api.profitbricks.com/rest/v2/datacenters/dbe936f8-a536-49c5-b864-cec842e3ee65/volumes/12629ab1-20e4-4751-9d92-94986...
 ```
 
-## List Volumes
+### List Volumes
 
 Let's take a look at all the volumes in the data center:
 
@@ -216,16 +213,15 @@ Id                                   Type   Href
 12629ab1-20e4-4751-9d92-94986d424eec volume https://api.profitbricks.com/rest/v2/datacenters/dbe936f8-a536-49c5-b864-cec842e3ee65/volumes/12629ab1-20e4-4751-9d92-94986...
 ```
 
-#Continue
-## Create Snapshot
+### Create Snapshot
 
-If we have a volume we'd like to keep a copy of, perhaps as a backup, we can take a snapshot:
+If we have a volume we would like to keep a copy of, perhaps as a backup, we can take a snapshot:
 
 ```
 New-PBSnapshot -DatacenterId $datacenter.Id -VolumeId $newvolume.Id -Name "test snapshot"
 ```
 
-## List Snapshots
+### List Snapshots
 
 Here is a list of the snapshots in our account:
 
@@ -241,7 +237,7 @@ c46f5183-7ee4-4317-ab2a-e9320eac57d6 snapshot https://api.profitbricks.com/rest/
 
 ```
 
-## Update Snapshot
+### Update Snapshot
 
 Now that we have a snapshot created, we can change the name to something more descriptive:
 
@@ -249,7 +245,7 @@ Now that we have a snapshot created, we can change the name to something more de
 Set-PBSnapshot -SnapshotId $snapshots.Item(0).Id -Name "new_name
 ```
 
-## Delete Snapshot
+### Delete Snapshot
 
 We can delete our snapshot when we are done with it:
 
@@ -257,9 +253,9 @@ We can delete our snapshot when we are done with it:
 Remove-PBSnapshot -SnapshotId $snapshots.Item(0).Id
 ```
 
-## Summary
+### List Commandlets
 
-Now we've had a taste of working with the Profitbricks Powershell module. To get more details on every commandled contained in Profitbricks Powershell module you can do this:
+Now we have had a taste of working with the Profitbricks Powershell module. To get more details on every commandlet contained in Profitbricks Powershell module you can do this:
 
 ```
 Get-Command -Module Profitbricks
@@ -317,7 +313,9 @@ Cmdlet          Start-PBServer                                     1.0.0.0    Pr
 Cmdlet          Stop-PBServer                                      1.0.0.0    Profitbricks 
 ```
 
-To get help for a specific commandlet do following:
+### Get Help for a Commandlet
+
+To get help for a specific commandlet do the following:
 
 ```
 Get-Help Set-Profitbricks -Full
