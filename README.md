@@ -40,8 +40,8 @@ Before you begin you will need to have [signed-up](https://www.profitbricks.com/
 
 Download the [ProfitBricks.Zip](---) and extract all. Use one of the followimg options to make the module availible for PowerShell:
 
-1. Place the resulting folder `ProfitBricksSoapApi` (does contain 3 Files) in `%USERPROFILE%\Documents\WindowsPowerShell\Modules\` will auto load the module on PowerShell start for the User.
-2. Place the resulting folder `ProfitBricksSoapApi` (does contain 3 Files) in `%SYSTEMROT%\System32\WindowsPowerShell\v1.0\Modules\` will make the module system wide availible (not recomendet)
+1. Place the resulting folder `Profitbricks` (does contain 3 Files) in `%USERPROFILE%\Documents\WindowsPowerShell\Modules\` will auto load the module on PowerShell start for the User.
+2. Place the resulting folder `Profitbricks` (does contain 3 Files) in `%SYSTEMROT%\System32\WindowsPowerShell\v1.0\Modules\` will make the module system wide availible (not recommended)
 3. Place the resulting folder in any folder ouf your choice and extend the eviromet variable `PSModulePath` by this folder will make the module system wide availible. 
 
 ## Configuration
@@ -71,7 +71,7 @@ At line:9 char:1
     + FullyQualifiedErrorId : 406,Profitbricks.SetProfitbricks
 ```
 
-After successful authentication the credentials will be stored for the duration of the Powershell session.
+After successful authentication the credentials will be stored for the duration of Powershell session.
 
 
 # How To's:
@@ -80,7 +80,7 @@ These examples assume that you don't have any resources provisioned under your a
 
 #Datacenter
 
-We need to supply some parameters to get our first data center created. In this case, we will set the location to 'us/las' so that this data center is created under the [DevOps Data Center](https://devops.profitbricks.com/tutorials/devops-data-center-information/). Other valid locations can be determined by reviewing the [REST API Documentation](https://devops.profitbricks.com/api/rest/#locations). That documentation is an excellent resource since that is what the ProfitBricks CLI is calling to complete these operations.
+We need to supply some parameters to get our first data center created. In this case, we will set the location to 'us/las' so that this data center is created under the [DevOps Data Center](https://devops.profitbricks.com/tutorials/devops-data-center-information/). Other valid locations can be determined by reviewing the [REST API Documentation](https://devops.profitbricks.com/api/rest/#locations). That documentation is an excellent resource since that is what the Profitbricks Powershell module is calling to complete these operations.
 
 ```
 >$datacenter =  New-PBDatacenter -Name "Example datacenter" -Description "Example description" -Location "us/las"
@@ -337,7 +337,6 @@ DESCRIPTION
 
 PARAMETERS
     -Credential <PSCredential>
-        
         Required?                    true
         Position?                    0
         Default value                
@@ -348,8 +347,7 @@ PARAMETERS
         This cmdlet supports the common parameters: Verbose, Debug,
         ErrorAction, ErrorVariable, WarningAction, WarningVariable,
         OutBuffer, PipelineVariable, and OutVariable. For more information, see 
-        about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216). 
-    
+        about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216).
 INPUTS
     System.Management.Automation.PSCredential
         
@@ -358,8 +356,8 @@ INPUTS
     
 OUTPUTS
     
-    ----------  EXAMPLE 1  ----------
+----------  EXAMPLE 1  ----------
     
-    $credentials = Get-Credential -Message [message text] -UserName [user_name]
-    Set-Profitbricks -Credential $credential
+$credentials = Get-Credential -Message [message text] -UserName [user_name]
+Set-Profitbricks -Credential $credential
 ```
