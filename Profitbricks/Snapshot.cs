@@ -10,8 +10,8 @@ using System.Threading.Tasks;
 namespace Profitbricks
 {
     /// <summary>
-    /// <para type="synopsis">This commandlet retrieves a list of available snapshots within your Profitbricks instance.</para>
-    /// <para type="synopsis">If SnapshotId parameter is provided then it will return only the specified snapshot.</para>
+    /// <para type="synopsis">This commandlet retrieves a list of available snapshots within your ProfitBricks instance.</para>
+    /// <para type="synopsis">If the SnapshotId parameter is provided,  it will return only the specified snapshot.</para>
     /// </summary>
     ///<example>
     /// <para type="example">Get-PBSnapshot</para>
@@ -23,7 +23,7 @@ namespace Profitbricks
         #region Parameters
 
         /// <summary>
-        /// <para type="description">Snapshot Id. Mandatory Parameter</para>
+        /// <para type="description">Snapshot ID. Mandatory parameter.</para>
         /// </summary>
         [Parameter(Position = 0, HelpMessage = "Snapshot Id", ValueFromPipeline = true)]
         public string SnapshotId { get; set; }
@@ -70,13 +70,13 @@ namespace Profitbricks
         #region Parameters
 
         /// <summary>
-        /// <para type="description">Virtual data center Id. Mandatory Parameter</para>
+        /// <para type="description">Virtual data center ID. Mandatory parameter.</para>
         /// </summary>
         [Parameter(Position = 0, HelpMessage = "Virtual data center Id", Mandatory = true, ValueFromPipeline = true)]
         public string DatacenterId { get; set; }
 
         /// <summary>
-        /// <para type="description">Volume Id. Mandatory Parameter</para>
+        /// <para type="description">Volume ID. Mandatory parameter.</para>
         /// </summary>
         [Parameter(Position = 0, HelpMessage = "Volume Id", Mandatory = true, ValueFromPipeline = true)]
         public string VolumeId { get; set; }
@@ -137,7 +137,7 @@ namespace Profitbricks
         #region Parameters
 
         /// <summary>
-        /// <para type="description">Snapshot Id. Mandatory Parameter</para>
+        /// <para type="description">Snapshot ID. Mandatory parameter.</para>
         /// </summary>
         [Parameter(Position = 0, HelpMessage = "Snapshot Id", Mandatory = true, ValueFromPipeline = true)]
         public string SnapshotId { get; set; }
@@ -162,7 +162,7 @@ namespace Profitbricks
     }
 
     /// <summary>
-    /// <para type="synopsis">This commandlet will update Snapshot properties.</para>
+    /// <para type="synopsis">This commandlet will update the snapshot properties.</para>
     /// <para type="synopsis">Only parameters passed in the commandlet will be updated.</para>
     /// </summary>
     /// <example>
@@ -175,7 +175,7 @@ namespace Profitbricks
         #region Parameters
 
         /// <summary>
-        /// <para type="description">Snapshot Id. Mandatory Parameter</para>
+        /// <para type="description">Snapshot ID. Mandatory parameter.</para>
         /// </summary>
         [Parameter(Position = 0, HelpMessage = "Snapshot Id", Mandatory = true, ValueFromPipeline = true)]
         public string SnapshotId { get; set; }
@@ -193,67 +193,67 @@ namespace Profitbricks
         public string Description { get; set; }
 
         /// <summary>
-        /// <para type="description">This volume is capable of CPU hot plug (no reboot required)	</para>
+        /// <para type="description">This volume is capable of CPU hot plug (no reboot required).	</para>
         /// </summary>
         [Parameter(Position = 3, ValueFromPipeline = true)]
         public bool? CpuHotPlug { get; set; }
 
         /// <summary>
-        /// <para type="description">This volume is capable of CPU hot unplug (no reboot required)	</para>
+        /// <para type="description">This volume is capable of CPU hot unplug (no reboot required).	</para>
         /// </summary>
         [Parameter(Position = 4, ValueFromPipeline = true)]
         public bool? CpuHotUnplug { get; set; }
 
         /// <summary>
-        /// <para type="description">This volume is capable of RAM hot plug (no reboot required)	</para>
+        /// <para type="description">This volume is capable of RAM hot plug (no reboot required).	</para>
         /// </summary>
         [Parameter(Position = 5, ValueFromPipeline = true)]
         public bool? RamHotPlug { get; set; }
 
         /// <summary>
-        /// <para type="description">This volume is capable of RAM hot unplug (no reboot required)	</para>
+        /// <para type="description">This volume is capable of RAM hot unplug (no reboot required).	</para>
         /// </summary>
         [Parameter(Position = 6, ValueFromPipeline = true)]
         public bool? RamHotUnplug { get; set; }
 
         /// <summary>
-        /// <para type="description">This volume is capable of Nic hot plug (no reboot required)	</para>
+        /// <para type="description">This volume is capable of NIC hot plug (no reboot required).	</para>
         /// </summary>
         [Parameter(Position = 7, ValueFromPipeline = true)]
         public bool? NicHotPlug { get; set; }
 
         /// <summary>
-        /// <para type="description">This volume is capable of Nic hot unplug (no reboot required)	</para>
+        /// <para type="description">This volume is capable of NIC hot unplug (no reboot required).	</para>
         /// </summary>
         [Parameter(Position = 8, ValueFromPipeline = true)]
         public bool? NicHotUnplug { get; set; }
 
         /// <summary>
-        /// <para type="description">This volume is capable of Virt-IO drive hot plug (no reboot required)	</para>
+        /// <para type="description">This volume is capable of Virt-IO drive hot plug (no reboot required).	</para>
         /// </summary>
         [Parameter(Position = 9, ValueFromPipeline = true)]
         public bool? DiscVirtioHotPlug { get; set; }
 
         /// <summary>
-        /// <para type="description">This volume is capable of Virt-IO drive hot unplug (no reboot required)	</para>
+        /// <para type="description">This volume is capable of Virt-IO drive hot unplug (no reboot required).	</para>
         /// </summary>
         [Parameter(Position = 10, ValueFromPipeline = true)]
         public bool? DiscVirtioHotUnplug { get; set; }
 
         /// <summary>
-        /// <para type="description">This volume is capable of SCSI drive hot plug (no reboot required)	</para>
+        /// <para type="description">This volume is capable of SCSI drive hot plug (no reboot required).	</para>
         /// </summary>
         [Parameter(Position = 11, ValueFromPipeline = true)]
         public bool? DiscScsiHotPlug { get; set; }
 
         /// <summary>
-        /// <para type="description">This volume is capable of SCSI drive hot unplug (no reboot required)	</para>
+        /// <para type="description">This volume is capable of SCSI drive hot unplug (no reboot required).	</para>
         /// </summary>
         [Parameter(Position = 12, ValueFromPipeline = true)]
         public bool? DiscScsiHotUnplug { get; set; }
 
         /// <summary>
-        /// <para type="description">The snapshot's licence type: LINUX, WINDOWS, or UNKNOWN.	</para>
+        /// <para type="description">The snapshot's license type: LINUX, WINDOWS, or UNKNOWN.	</para>
         /// </summary>
         [Parameter(Position = 13, ValueFromPipeline = true)]
         public string LicenceType { get; private set; }
@@ -313,19 +313,19 @@ namespace Profitbricks
         #region Parameters
 
         /// <summary>
-        /// <para type="description">Virtual data center Id. Mandatory Parameter</para>
+        /// <para type="description">Virtual data center ID. Mandatory parameter.</para>
         /// </summary>
         [Parameter(Position = 0, HelpMessage = "Virtual data center Id", Mandatory = true, ValueFromPipeline = true)]
         public string DatacenterId { get; set; }
 
         /// <summary>
-        /// <para type="description">Volume Id. Mandatory Parameter</para>
+        /// <para type="description">Volume ID. Mandatory parameter.</para>
         /// </summary>
         [Parameter(Position = 1, HelpMessage = "Volume Id", Mandatory = true, ValueFromPipeline = true)]
         public string VolumeId { get; set; }
 
         /// <summary>
-        /// <para type="description">Snapshot Id. Mandatory Parameter</para>
+        /// <para type="description">Snapshot ID. Mandatory parameter.</para>
         /// </summary>
         [Parameter(Position = 2, HelpMessage = "Snapshot Id", Mandatory = true, ValueFromPipeline = true)]
         public string SnapshotId { get; set; }
