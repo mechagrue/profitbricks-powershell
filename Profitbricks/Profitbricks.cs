@@ -11,7 +11,7 @@ using System.Text;
 namespace Profitbricks
 {
     /// <summary>
-    /// <para type="synopsis">This is the cmdlet sets profitbricks credentials.</para>
+    /// <para type="synopsis">This is the cmdlet which sets ProfitBricks credentials.</para>
     /// </summary>
     /// <example>
     ///   <code>
