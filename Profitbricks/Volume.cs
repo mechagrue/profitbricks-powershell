@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace Profitbricks
 {
     /// <summary>
-    /// <para type="synopsis">This commandlet will get list of Volumes attached to the Server.</para>
+    /// <para type="synopsis">This commandlet will get a list of volumes attached to the server.</para>
     /// </summary>
     /// <example>
     /// <para type="description">Get-PBAttachedVolume -DataCenterId [UUID] -ServerId [UUID]</para>
@@ -22,13 +22,13 @@ namespace Profitbricks
         #region Parameters 
         
         /// <summary>
-        /// <para type="description">Virtual data center Id. Mandatory parameter.</para>
+        /// <para type="description">Virtual data center ID. Mandatory parameter.</para>
         /// </summary>
         [Parameter(Position = 0, HelpMessage = "Virtual data center Id", Mandatory = true, ValueFromPipeline = true)]
         public string DataCenterId { get; set; }
 
         /// <summary>
-        /// <para type="description">Server Id. If this parameters is not passed the commandlet will return list of all servers from Virtual data center passed in previous parameter.</para>
+        /// <para type="description">Server ID. If this parameter is not passed the commandlet will return a list of all servers from the virtual data center passed in the previous parameter.</para>
         /// </summary>
         [Parameter(Position = 1, HelpMessage = "Server Id", Mandatory = true, ValueFromPipeline = true)]
         public string ServerId { get; set; }
@@ -53,7 +53,7 @@ namespace Profitbricks
     }
 
     /// <summary>
-    /// <para type="synopsis">This commandlet will get one or list of Volumes attached from a given Virtual data center.</para>
+    /// <para type="synopsis">This commandlet will get one or a list of volumes attached from a given virtual data center.</para>
     /// </summary>
     /// <example>
     /// <para type="description">Get-PBVolume -DataCenterId [UUID] -VolumeId [UUID]</para>
@@ -65,13 +65,13 @@ namespace Profitbricks
         #region Parameters 
 
         /// <summary>
-        /// <para type="description">Virtual data center Id. Mandatory parameter.</para>
+        /// <para type="description">Virtual data center ID. Mandatory parameter.</para>
         /// </summary>
         [Parameter(Position = 0, HelpMessage = "Virtual data center Id", Mandatory = true, ValueFromPipeline = true)]
         public string DataCenterId { get; set; }
 
         /// <summary>
-        /// <para type="description">Volume Id. Mandatory parameter.</para>
+        /// <para type="description">Volume ID. Mandatory parameter.</para>
         /// </summary>
         [Parameter(Position = 1, HelpMessage = "Volume Id", ValueFromPipeline = true)]
         public string VolumeId { get; set; }
@@ -106,7 +106,7 @@ namespace Profitbricks
     }
 
     /// <summary>
-    /// <para type="synopsis">This commandlet will create a Volume on a given Virtual data center.</para>
+    /// <para type="synopsis">This commandlet will create a volume on a given virtual data center.</para>
     /// </summary>
     /// <example>
     /// <para type="description">New-PBVolume -DataCenterId [UUID] -Size [size] -Type [type]</para>
@@ -118,7 +118,7 @@ namespace Profitbricks
         #region Parameters 
         
         /// <summary>
-        /// <para type="description">Virtual data center Id. Mandatory parameter</para>
+        /// <para type="description">Virtual data center ID. Mandatory parameter</para>
         /// </summary>
         [Parameter(Position = 0, HelpMessage = "Virtual data center Id", Mandatory = true, ValueFromPipeline = true)]
         public string DataCenterId { get; set; }
@@ -154,7 +154,7 @@ namespace Profitbricks
         public string LicenceType { get; set; }
 
         /// <summary>
-        /// <para type="description">One-time password for the Image. Only these characters are allowed: [abcdefghjkmnpqrstuvxABCDEFGHJKLMNPQRSTUVX23456789]</para>
+        /// <para type="description">One-time password for the image. Only these characters are allowed: [abcdefghjkmnpqrstuvxABCDEFGHJKLMNPQRSTUVX23456789]</para>
         /// </summary>
         [Parameter(Position = 6, HelpMessage = "One-time password for the Image. Only these characters are allowed: [abcdefghjkmnpqrstuvxABCDEFGHJKLMNPQRSTUVX23456789]", ValueFromPipeline = true)]
         public string ImagePassword { get; set; }
@@ -244,19 +244,19 @@ namespace Profitbricks
         #region Parameters 
 
         /// <summary>
-        /// <para type="description">Virtual data center Id. Mandatory parameter.</para>
+        /// <para type="description">Virtual data center ID. Mandatory parameter.</para>
         /// </summary>
         [Parameter(Position = 0, HelpMessage = "Virtual data center Id", Mandatory = true, ValueFromPipeline = true)]
         public string DataCenterId { get; set; }
 
         /// <summary>
-        /// <para type="description">Server Id. Mandatory parameter.</para>
+        /// <para type="description">Server ID. Mandatory parameter.</para>
         /// </summary>
         [Parameter(Position = 1, HelpMessage = "Server Id", Mandatory = true, ValueFromPipeline = true)]
         public string ServerId { get; set; }
 
         /// <summary>
-        /// <para type="description">Volume Id. Mandatory parameter.</para>
+        /// <para type="description">Volume ID. Mandatory parameter.</para>
         /// </summary>
         [Parameter(Position = 2, HelpMessage = "Volume Id", Mandatory = true, ValueFromPipeline = true)]
         public string VolumeId { get; set; }
@@ -293,19 +293,19 @@ namespace Profitbricks
         #region Parameters 
 
         /// <summary>
-        /// <para type="description">Virtual data center Id. Mandatory parameter.</para>
+        /// <para type="description">Virtual data center ID. Mandatory parameter.</para>
         /// </summary>
         [Parameter(Position = 0, HelpMessage = "Virtual data center Id", Mandatory = true, ValueFromPipeline = true)]
         public string DataCenterId { get; set; }
 
         /// <summary>
-        /// <para type="description">Server Id. Mandatory parameter.</para>
+        /// <para type="description">Server ID. Mandatory parameter.</para>
         /// </summary>
         [Parameter(Position = 1, HelpMessage = "Server Id", Mandatory = true, ValueFromPipeline = true)]
         public string ServerId { get; set; }
 
         /// <summary>
-        /// <para type="description">Volume Id. Mandatory parameter.</para>
+        /// <para type="description">Volume ID. Mandatory parameter.</para>
         /// </summary>
         [Parameter(Position = 2, HelpMessage = "Volume Id", Mandatory = true, ValueFromPipeline = true)]
         public string VolumeId { get; set; }
@@ -330,7 +330,7 @@ namespace Profitbricks
     }
 
     /// <summary>
-    /// <para type="synopsis">This commandlet will delete the specified volume from the Virtual data center.</para>
+    /// <para type="synopsis">This commandlet will delete the specified volume from the virtual data center.</para>
     /// </summary>
     /// <example>
     /// <para type="description">Remove-PBVolume -DataCenterId [UUID] -VolumeId [UUID]</para>
@@ -342,13 +342,13 @@ namespace Profitbricks
         #region Parameters 
 
         /// <summary>
-        /// <para type="description">Virtual data center Id. Mandatory parameter.</para>
+        /// <para type="description">Virtual data center ID. Mandatory parameter.</para>
         /// </summary>
         [Parameter(Position = 0, HelpMessage = "Virtual data center Id", Mandatory = true, ValueFromPipeline = true)]
         public string DataCenterId { get; set; }
 
         /// <summary>
-        /// <para type="description">Volume Id. Mandatory parameter.</para>
+        /// <para type="description">Volume ID. Mandatory parameter.</para>
         /// </summary>
         [Parameter(Position = 1, HelpMessage = "Volume Id", Mandatory = true, ValueFromPipeline = true)]
         public string VolumeId { get; set; }
@@ -373,7 +373,7 @@ namespace Profitbricks
     }
 
     /// <summary>
-    /// <para type="synopsis">This commandlet will update Volume properties.</para>
+    /// <para type="synopsis">This commandlet will update volume properties.</para>
     /// <para type="synopsis">Only parameters passed in the commandlet will be updated.</para>
     /// </summary>
     /// <example>
@@ -386,13 +386,13 @@ namespace Profitbricks
         #region Parameters 
 
         /// <summary>
-        /// <para type="description">Virtual data center Id. Mandatory parameter.</para>
+        /// <para type="description">Virtual data center ID. Mandatory parameter.</para>
         /// </summary>
         [Parameter(Position = 0, HelpMessage = "Virtual data center Id", Mandatory = true, ValueFromPipeline = true)]
         public string DataCenterId { get; set; }
 
         /// <summary>
-        /// <para type="description">Volume Id. Mandatory parameter. Mandatory parameter.</para>
+        /// <para type="description">Volume ID. Mandatory parameter. Mandatory parameter.</para>
         /// </summary>
         [Parameter(Position = 1, HelpMessage = "Volume Id", Mandatory = true, ValueFromPipeline = true)]
         public string VolumeId { get; set; }
@@ -422,13 +422,13 @@ namespace Profitbricks
         public string ImageId { get; set; }
 
         /// <summary>
-        /// <para type="description">The licence type of the volume. Options: LINUX, WINDOWS, UNKNOWN, OTHER</para>
+        /// <para type="description">The license type of the volume. Options: LINUX, WINDOWS, UNKNOWN, OTHER</para>
         /// </summary>
         [Parameter(Position = 6, HelpMessage = "The licence type of the volume. Options: LINUX, WINDOWS, UNKNOWN, OTHER", ValueFromPipeline = true)]
         public string LicenceType { get; set; }
 
         /// <summary>
-        /// <para type="description">One-time password for the Image. Only these characters are allowed: [abcdefghjkmnpqrstuvxABCDEFGHJKLMNPQRSTUVX23456789]</para>
+        /// <para type="description">One-time password for the image. Only these characters are allowed: [abcdefghjkmnpqrstuvxABCDEFGHJKLMNPQRSTUVX23456789]</para>
         /// </summary>
         [Parameter(Position = 7, HelpMessage = "One-time password for the Image. Only these characters are allowed: [abcdefghjkmnpqrstuvxABCDEFGHJKLMNPQRSTUVX23456789]", ValueFromPipeline = true)]
         public string ImagePassword { get; set; }
@@ -446,61 +446,61 @@ namespace Profitbricks
         public int Size { get; set; }
 
         /// <summary>
-        /// <para type="description">This volume is capable of CPU hot plug (no reboot required)</para>
+        /// <para type="description">This volume is capable of CPU hot plug (no reboot required).</para>
         /// </summary>
         [Parameter(Position = 10, ValueFromPipeline = true)]
         public bool? CpuHotPlug { get; set; }
 
         /// <summary>
-        /// <para type="description">This volume is capable of CPU hot unplug (no reboot required)</para>
+        /// <para type="description">This volume is capable of CPU hot unplug (no reboot required).</para>
         /// </summary>
         [Parameter(Position = 11, ValueFromPipeline = true)]
         public bool? CpuHotUnplug { get; set; }
 
         /// <summary>
-        /// <para type="description">This volume is capable of memory hot plug (no reboot required)</para>
+        /// <para type="description">This volume is capable of memory hot plug (no reboot required).</para>
         /// </summary>
         [Parameter(Position = 12, ValueFromPipeline = true)]
         public bool? RamHotPlug { get; set; }
 
         /// <summary>
-        /// <para type="description">This volume is capable of memory hot unplug (no reboot required)</para>
+        /// <para type="description">This volume is capable of memory hot unplug (no reboot required).</para>
         /// </summary>
         [Parameter(Position = 13, ValueFromPipeline = true)]
         public bool? RamHotUnplug { get; set; }
 
         /// <summary>
-        /// <para type="description">This volume is capable of nic hot plug (no reboot required)</para>
+        /// <para type="description">This volume is capable of NIC hot plug (no reboot required).</para>
         /// </summary>
         [Parameter(Position = 14, ValueFromPipeline = true)]
         public bool? NicHotPlug { get; set; }
 
         /// <summary>
-        /// <para type="description">This volume is capable of nic hot unplug (no reboot required)</para>
+        /// <para type="description">This volume is capable of NIC hot unplug (no reboot required).</para>
         /// </summary>
         [Parameter(Position = 15, ValueFromPipeline = true)]
         public bool? NicHotUnplug { get; set; }
 
         /// <summary>
-        /// <para type="description">This volume is capable of Virt-IO drive hot plug (no reboot required)</para>
+        /// <para type="description">This volume is capable of Virt-IO drive hot plug (no reboot required).</para>
         /// </summary>
         [Parameter(Position = 16, ValueFromPipeline = true)]
         public bool? DiscVirtioHotPlug { get; set; }
 
         /// <summary>
-        /// <para type="description">This volume is capable of Virt-IO drive hot unplug (no reboot required)</para>
+        /// <para type="description">This volume is capable of Virt-IO drive hot unplug (no reboot required).</para>
         /// </summary>
         [Parameter(Position = 17, ValueFromPipeline = true)]
         public bool? DiscVirtioHotUnplug { get; set; }
 
         /// <summary>
-        /// <para type="description">This volume is capable of Scsi drive hot plug (no reboot required)</para>
+        /// <para type="description">This volume is capable of SCSI drive hot plug (no reboot required).</para>
         /// </summary>
         [Parameter(Position = 18, ValueFromPipeline = true)]
         public bool? DiscScsiHotPlug { get; set; }
 
         /// <summary>
-        /// <para type="description">This volume is capable of Scsi drive hot unplug (no reboot required)</para>
+        /// <para type="description">This volume is capable of SCSI drive hot unplug (no reboot required).</para>
         /// </summary>
         [Parameter(Position = 19, ValueFromPipeline = true)]
         public bool? DiscScsiHotUnplug { get; set; }
