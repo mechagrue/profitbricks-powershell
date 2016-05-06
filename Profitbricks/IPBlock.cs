@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace Profitbricks
 {
     /// <summary>
-    /// <para type="synopsis">This commandlet will get one or list of IP Blocks within Virtual Data Center.</para>
+    /// <para type="synopsis">This commandlet will get one or a list of IP Blocks within Virtual Data Center.</para>
     /// <para type="synopsis">If IpBlockId parameter is provided then it will return only the specified IpBlock.</para>
     /// </summary>
     /// <example>
@@ -25,7 +25,7 @@ namespace Profitbricks
         #region Parameters 
 
         /// <summary>
-        /// <para type="description">IP Block Id</para>
+        /// <para type="description">IP Block ID</para>
         /// </summary>
         [Parameter(Position = 0, HelpMessage = "IP Block Id", ValueFromPipeline = true)]
         public string IpBlockId { get; set; }
@@ -57,7 +57,7 @@ namespace Profitbricks
     }
 
     /// <summary>
-    /// <para type="synopsis">This commandlet will create IP Block within the data center.</para>
+    /// <para type="synopsis">This commandlet will create an IP Block within the data center.</para>
     /// </summary>
     /// <example>
     /// <para type="description">New-PBIPBlock -Location [location] -Size [size]</para>
@@ -102,7 +102,7 @@ namespace Profitbricks
     }
 
     /// <summary>
-    /// <para type="synopsis">This commandlet will remove IP Block from the data center.</para>
+    /// <para type="synopsis">This commandlet will remove an IP Block from the data center.</para>
     /// </summary>
     /// <example>
     /// <para type="description">New-PBIPBlock -IpBlockId [UUID]</para>
