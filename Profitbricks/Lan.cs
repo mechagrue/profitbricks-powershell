@@ -9,15 +9,29 @@ using System.Threading.Tasks;
 
 namespace Profitbricks
 {
+    /// <summary>
+    /// <para type="synopsis">This commandlet will get one or list of LANs within the data center.</para>
+    /// <para type="synopsis">If LanId parameter is provided then it will return only the specified Lan.</para>
+    /// </summary>
+    /// <example>
+    /// <para type="description">Get-PBLan -DatacenterId [UUID]</para>
+    /// <para type="description">Get-PBLan -DatacenterId [UUID]-LanId [UUID]</para>
+    /// </example>
     [Cmdlet(VerbsCommon.Get, "PBLan")]
     [OutputType(typeof(Lan))]
     public class GetLan : Cmdlet
     {
         #region Parameters
 
+        /// <summary>
+        /// <para type="description">Virtual data center Id. Mandatory parameter.</para>
+        /// </summary>
         [Parameter(Position = 0, HelpMessage = "Virtual data center Id", Mandatory = true, ValueFromPipeline = true)]
         public string DataCenterId { get; set; }
 
+        /// <summary>
+        /// <para type="description">Lan Id.</para>
+        /// </summary>
         [Parameter(Position = 1, HelpMessage = "Lan Id", ValueFromPipeline = true)]
         public string LanId { get; set; }
 
@@ -49,22 +63,38 @@ namespace Profitbricks
         }
     }
 
+    /// <summary>
+    /// <para type="synopsis">This commandlet create a LAN within a data center.</para>
+    /// </summary>
+    /// <example>
+    /// <para type="description">New-PBLan -DatacenterId [UUID]-Name [name]</para>
+    /// </example>
     [Cmdlet(VerbsCommon.New, "PBLan")]
     [OutputType(typeof(Lan))]
     public class NewLan : Cmdlet
     {
         #region Parameters
 
+        /// <summary>
+        /// <para type="description">Virtual data center Id. Mandatory parameter.</para>
+        /// </summary>
         [Parameter(Position = 0, HelpMessage = "Virtual data center Id", Mandatory = true, ValueFromPipeline = true)]
         public string DataCenterId { get; set; }
 
+        /// <summary>
+        /// <para type="description">The name of your LAN.</para>
+        /// </summary>
         [Parameter(Position = 1, HelpMessage = "The name of your LAN.", ValueFromPipeline = true)]
         public string Name { get; set; }
 
+        /// <summary>
+        /// <para type="description">Boolean indicating if the LAN faces the public Internet or not.</para>
+        /// </summary>
         [Parameter(Position = 1, HelpMessage = "Boolean indicating if the LAN faces the public Internet or not.", ValueFromPipeline = true)]
         public bool? Public { get; set; }
 
         #endregion
+
         protected override void BeginProcessing()
         {
             try
@@ -88,15 +118,28 @@ namespace Profitbricks
             }
         }
     }
+
+    /// <summary>
+    /// <para type="synopsis">This commandlet remove the specified LAN froma a data center.</para>
+    /// </summary>
+    /// <example>
+    /// <para type="description">Remove-PBLan -DatacenterId [UUID] -LanId [UUID]</para>
+    /// </example>
     [Cmdlet(VerbsCommon.Remove, "PBLan")]
     [OutputType(typeof(Lan))]
     public class RemoveLan : Cmdlet
     {
         #region Parameters
 
+        /// <summary>
+        /// <para type="description">Virtual data center Id. Mandatory parameter.</para>
+        /// </summary>
         [Parameter(Position = 0, HelpMessage = "Virtual data center Id", Mandatory = true, ValueFromPipeline = true)]
         public string DataCenterId { get; set; }
 
+        /// <summary>
+        /// <para type="description">Lan Id. Mandatory parameter.</para>
+        /// </summary>
         [Parameter(Position = 1, HelpMessage = "LAN Id", Mandatory = true, ValueFromPipeline = true)]
         public string LanId { get; set; }
         
@@ -117,21 +160,40 @@ namespace Profitbricks
         }
     }
 
+    /// <summary>
+    /// <para type="synopsis">This commandlet will update Lan properties.</para>
+    /// <para type="synopsis">Only parameters passed in the commandlet will be updated.</para>
+    /// </summary>
+    /// <example>
+    /// <para type="description">Set-PBLan -DataCenterId [UUID] -LanId [UUID] -Name [name]</para>
+    /// </example>
     [Cmdlet(VerbsCommon.Set, "PBLan")]
     [OutputType(typeof(Lan))]
     public class SetLan : Cmdlet
     {
         #region Parameters
 
+        /// <summary>
+        /// <para type="description">Virtual data center Id. Mandatory parameter.</para>
+        /// </summary>
         [Parameter(Position = 0, HelpMessage = "Virtual data center Id", Mandatory = true, ValueFromPipeline = true)]
         public string DataCenterId { get; set; }
 
+        /// <summary>
+        /// <para type="description">Lan Id. Mandatory parameter.</para>
+        /// </summary>
         [Parameter(Position = 1, HelpMessage = "LAN Id", Mandatory = true, ValueFromPipeline = true)]
         public string LanId { get; set; }
 
+        /// <summary>
+        /// <para type="description">The name of your LAN.</para>
+        /// </summary>
         [Parameter(Position = 2, HelpMessage = "The name of your LAN.", ValueFromPipeline = true)]
         public string Name { get; set; }
 
+        /// <summary>
+        /// <para type="description">Boolean indicating if the LAN faces the public Internet or not.</para>
+        /// </summary>
         [Parameter(Position = 3, HelpMessage = "Boolean indicating if the LAN faces the public Internet or not.", ValueFromPipeline = true)]
         public bool? Public { get; set; }
 

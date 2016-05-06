@@ -195,6 +195,10 @@ namespace Profitbricks
         /// </summary>
         [Parameter(Position = 1, HelpMessage = "Loadbalancer Id", Mandatory = true, ValueFromPipeline = true)]
         public string LoadbalancerId { get; set; }
+
+        /// <summary>
+        /// <para type="description">Loadbalancer Name.</para>
+        /// </summary>
         [Parameter(Position = 2, HelpMessage = "Loadbalancer Name", ValueFromPipeline = true)]
         public string Name { get; set; }
 

@@ -163,7 +163,7 @@ namespace Profitbricks
     }
 
     /// <summary>
-    /// <para type="synopsis">This commandlet will remove Virtual data center from your Profitbricks instance.</para>
+    /// <para type="synopsis">This commandlet will remove the specified Server from the specified Virtual data center .</para>
     /// </summary>
     /// <example>
     /// <para type="description">Remove-PBServer -DataCenterId [UUID] -ServerId [UUID]</para>
@@ -289,6 +289,7 @@ namespace Profitbricks
     /// </summary>
     /// <example>
     /// <para type="description">Stop-PBServer -DataCenterId [UUID] -ServerId [UUID]</para>
+    /// </example>
     [Cmdlet("Reboot", "PBServer")]
     [OutputType(typeof(Server))]
     public class RebootServer : Cmdlet

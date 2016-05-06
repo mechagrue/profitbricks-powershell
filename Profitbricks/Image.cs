@@ -15,7 +15,7 @@ namespace Profitbricks
     /// </summary>
     /// <example>
     /// <para type="description">Get-PBImage </para>
-    /// <para type="description">Get-PBImage -ImageId[UUID]</para>
+    /// <para type="description">Get-PBImage -ImageId [UUID]</para>
     /// </example>
     [Cmdlet(VerbsCommon.Get, "PBImage")]
     [OutputType(typeof(Image))]

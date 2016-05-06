@@ -82,7 +82,7 @@ namespace Profitbricks
         public string VolumeId { get; set; }
 
         /// <summary>
-        /// <para type="description"The name of the snapshot.</para>
+        /// <para type="description">The name of the snapshot.</para>
         /// </summary>
         [Parameter(Position = 0, HelpMessage = "Name", ValueFromPipeline = true)]
         public string Name { get; set; }

@@ -9,13 +9,22 @@ using System.Threading.Tasks;
 
 namespace Profitbricks
 {
+    /// <summary>
+    /// <para type="synopsis">This commandlet will retrieve the status of the request.</para>
+    /// </summary>
+    /// <example>
+    /// <para type="description">Get-PBRequestStatus -RequestUrl [url]</para>
+    /// </example>
     [Cmdlet(VerbsCommon.Get, "PBRequestStatus")]
     [OutputType(typeof(RequestStatus))]
     public class GetRequest : Cmdlet
     {
         #region Parameters
 
-        [Parameter(Position = 0, HelpMessage = "Request Url", Mandatory = true)]
+        /// <summary>
+        /// <para type="description">Request Url</para>
+        /// </summary>
+        [Parameter(Position = 0, HelpMessage = "Request Url", Mandatory = true, ValueFromPipeline = true)]
         public string RequestUrl { get; set; }
         #endregion
 

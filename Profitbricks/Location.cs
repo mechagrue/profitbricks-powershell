@@ -14,8 +14,8 @@ namespace Profitbricks
     /// <para type="synopsis">If LocationID parameter is provided then it will return only the specified snapshot.</para>
     /// </summary>
     /// <example>
-    /// <para type="description">Get-PBImage </para>
-    /// <para type="description">Get-PBImage -ImageId[UUID]</para>
+    /// <para type="description">Get-PBLocation </para>
+    /// <para type="description">Get-PBLocation -LocationId [UUID]</para>
     /// </example>
     [Cmdlet(VerbsCommon.Get, "PBLocation")]
     [OutputType(typeof(Location))]
