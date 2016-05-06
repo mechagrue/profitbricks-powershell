@@ -222,13 +222,7 @@ Id                                   Type   Href
 If we have a volume we'd like to keep a copy of, perhaps as a backup, we can take a snapshot:
 
 ```
-$ profitbricks snapshot create --datacenterid 3fc832b1-558f-48a4-bca2-af5043975393 --volumeid d231cd2e-89c1-4ed4-b4ad-d0a2c8b2b4a7
-
-Snapshot
--------------------------------------------------------------------------------------------------------------
-Id                                    Name                                  Size  Created               State
-------------------------------------  ------------------------------------  ----  --------------------  -----
-cf90b2e3-179b-4bff-a84c-d53ca58487dd  Demo Srvr 1 Boot-Snapshot-07/27/2015  null  2015-07-27T17:41:41Z  BUSY
+New-PBSnapshot -DatacenterId $datacenter.Id -VolumeId $newvolume.Id -Name "test snapshot"
 ```
 
 ## List Snapshots
@@ -236,13 +230,15 @@ cf90b2e3-179b-4bff-a84c-d53ca58487dd  Demo Srvr 1 Boot-Snapshot-07/27/2015  null
 Here is a list of the snapshots in our account:
 
 ```
-$ profitbricks snapshot list
 
-Snapshots
------------------------------------------------------------------------------------------------------------------
-Id                                    Name                                  Size  Created               State
-------------------------------------  ------------------------------------  ----  --------------------  ---------
-cf90b2e3-179b-4bff-a84c-d53ca58487dd  Demo Srvr 1 Boot-Snapshot-07/27/2015  10    2015-07-27T17:41:42Z  AVAILABLE
+$snapshots = Get-PBSnapshot 
+$snapshots| Format-Table
+
+Id                                   Type     Href                                                                                Metadata                                
+--                                   ----     ----                                                                                --------                                
+91c0a13b-2bc3-4628-851f-7f30c34997f9 snapshot https://api.profitbricks.com/rest/v2/snapshots/91c0a13b-2bc3-4628-851f-7f30c34997f9 class DatacenterElementMetadata {...    
+c46f5183-7ee4-4317-ab2a-e9320eac57d6 snapshot https://api.profitbricks.com/rest/v2/snapshots/c46f5183-7ee4-4317-ab2a-e9320eac57d6 class DatacenterElementMetadata {...    
+
 ```
 
 ## Update Snapshot
@@ -250,13 +246,7 @@ cf90b2e3-179b-4bff-a84c-d53ca58487dd  Demo Srvr 1 Boot-Snapshot-07/27/2015  10  
 Now that we have a snapshot created, we can change the name to something more descriptive:
 
 ```
-$ profitbricks snapshot update -i cf90b2e3-179b-4bff-a84c-d53ca58487dd --name "Demo Srvr 1 OS just installed"
-
-Snapshot
-------------------------------------------------------------------------------------------------------
-Id                                    Name                           Size  Created               State
-------------------------------------  -----------------------------  ----  --------------------  -----
-cf90b2e3-179b-4bff-a84c-d53ca58487dd  Demo Srvr 1 OS just installed  10    2015-07-27T17:41:42Z  BUSY
+Set-PBSnapshot -SnapshotId $snapshots.Item(0).Id -Name "new_name
 ```
 
 ## Delete Snapshot
@@ -264,113 +254,112 @@ cf90b2e3-179b-4bff-a84c-d53ca58487dd  Demo Srvr 1 OS just installed  10    2015-
 We can delete our snapshot when we are done with it:
 
 ```
-$ profitbricks snapshot delete -i cf90b2e3-179b-4bff-a84c-d53ca58487dd
-
-You are about to delete a snapshot. Do you want to proceed? (y/n
-prompt: yes:  y
+Remove-PBSnapshot -SnapshotId $snapshots.Item(0).Id
 ```
 
 ## Summary
 
-Now we've had a taste of working with the ProfitBricks CLI. The reference section below will provide some additional information regarding what parameters are available for various operations.
+Now we've had a taste of working with the Profitbricks Powershell module. To get more details on every commandled contained in Profitbricks Powershell module you can do this:
 
- Get-Server
+```
+Get-Command -Module Profitbricks
 
-New-Server
+CommandType     Name                                               Version    Source                                                                                      
+-----------     ----                                               -------    ------                                                                                      
+Cmdlet          Attach-PBVolume                                    1.0.0.0    Profitbricks                                                                                
+Cmdlet          Detach-PBVolume                                    1.0.0.0    Profitbricks                                                                                
+Cmdlet          Get-PBAttachedVolume                               1.0.0.0    Profitbricks                                                                                
+Cmdlet          Get-PBBalancedNics                                 1.0.0.0    Profitbricks                                                                                
+Cmdlet          Get-PBDatacenter                                   1.0.0.0    Profitbricks                                                                                
+Cmdlet          Get-PBFirewallRule                                 1.0.0.0    Profitbricks                                                                                
+Cmdlet          Get-PBImage                                        1.0.0.0    Profitbricks                                                                                
+Cmdlet          Get-PBIPBlock                                      1.0.0.0    Profitbricks                                                                                
+Cmdlet          Get-PBLan                                          1.0.0.0    Profitbricks                                                                                
+Cmdlet          Get-PBLoadbalancer                                 1.0.0.0    Profitbricks                                                                                
+Cmdlet          Get-PBLocation                                     1.0.0.0    Profitbricks                                                                                
+Cmdlet          Get-PBNic                                          1.0.0.0    Profitbricks                                                                                
+Cmdlet          Get-PBRequestStatus                                1.0.0.0    Profitbricks                                                                                
+Cmdlet          Get-PBServer                                       1.0.0.0    Profitbricks                                                                                
+Cmdlet          Get-PBSnapshot                                     1.0.0.0    Profitbricks                                                                                
+Cmdlet          Get-PBVolume                                       1.0.0.0    Profitbricks                                                                                
+Cmdlet          New-PBDatacenter                                   1.0.0.0    Profitbricks                                                                                
+Cmdlet          New-PBFirewallRule                                 1.0.0.0    Profitbricks                                                                                
+Cmdlet          New-PBIPBlock                                      1.0.0.0    Profitbricks                                                                                
+Cmdlet          New-PBLan                                          1.0.0.0    Profitbricks                                                                                
+Cmdlet          New-PBLoadbalancer                                 1.0.0.0    Profitbricks                                                                                
+Cmdlet          New-PBNic                                          1.0.0.0    Profitbricks                                                                                
+Cmdlet          New-PBServer                                       1.0.0.0    Profitbricks                                                                                
+Cmdlet          New-PBSnapshot                                     1.0.0.0    Profitbricks                                                                                
+Cmdlet          New-PBVolume                                       1.0.0.0    Profitbricks                                                                                
+Cmdlet          Reboot-PBServer                                    1.0.0.0    Profitbricks                                                                                
+Cmdlet          Remove-PBDatacenter                                1.0.0.0    Profitbricks                                                                                
+Cmdlet          Remove-PBFirewallRule                              1.0.0.0    Profitbricks                                                                                
+Cmdlet          Remove-PBIPBlock                                   1.0.0.0    Profitbricks                                                                                
+Cmdlet          Remove-PBLan                                       1.0.0.0    Profitbricks                                                                                
+Cmdlet          Remove-PBLoadbalancer                              1.0.0.0    Profitbricks                                                                                
+Cmdlet          Remove-PBNic                                       1.0.0.0    Profitbricks                                                                                
+Cmdlet          Remove-PBNicFromLoadbalancer                       1.0.0.0    Profitbricks                                                                                
+Cmdlet          Remove-PBServer                                    1.0.0.0    Profitbricks                                                                                
+Cmdlet          Remove-PBSnapshot                                  1.0.0.0    Profitbricks                                                                                
+Cmdlet          Remove-PBVolume                                    1.0.0.0    Profitbricks                                                                                
+Cmdlet          Restore-PBSnapshot                                 1.0.0.0    Profitbricks                                                                                
+Cmdlet          Set-PBDatacenter                                   1.0.0.0    Profitbricks                                                                                
+Cmdlet          Set-PBFirewallRule                                 1.0.0.0    Profitbricks                                                                                
+Cmdlet          Set-PBLan                                          1.0.0.0    Profitbricks                                                                                
+Cmdlet          Set-PBLoadbalancer                                 1.0.0.0    Profitbricks                                                                                
+Cmdlet          Set-PBNic                                          1.0.0.0    Profitbricks                                                                                
+Cmdlet          Set-PBNicToLoadbalancer                            1.0.0.0    Profitbricks                                                                                
+Cmdlet          Set-PBServer                                       1.0.0.0    Profitbricks                                                                                
+Cmdlet          Set-PBSnapshot                                     1.0.0.0    Profitbricks                                                                                
+Cmdlet          Set-PBVolume                                       1.0.0.0    Profitbricks                                                                                
+Cmdlet          Set-Profitbricks                                   1.0.0.0    Profitbricks                                                                                
+Cmdlet          Start-PBServer                                     1.0.0.0    Profitbricks                                                                                
+Cmdlet          Stop-PBServer                                      1.0.0.0    Profitbricks 
+```
 
-Set-Server
+To get help for a specific commandlet do following:
 
-Reboot-Server
+```
+Get-Help Set-Profitbricks -Full
 
-Remove-Server
+NAME
+    Set-Profitbricks
+    
+SYNOPSIS
+    This is the cmdlet sets profitbricks credentials.
+    
+SYNTAX
+    Set-Profitbricks [-Credential] <PSCredential> [<CommonParameters>]
+    
+    
+DESCRIPTION
+    
 
-Start-Server
-
-Stop-Server
-
-#Volume
-
-New-Volume
-
- Set-Volume
-
- Attach-Volume
-
- Detach-Volume
-
- Get-AttachedVolume
-
- Get-Volume
-
- New-Volume
-
- Remove-Volume
-
-
-#Image
- Get-Image
-
-#Snapshot
-
-Get-Snapshot
-
-New-Snapshot
-Remove-Snapshot
-
-Restore-Snapshot
-
-Set-Snapshot
-
-
-#Loadbalancer
-
-Get-Loadbalancer
-
-New-Loadbalancer
-
-Remove-Loadbalancer
-
-Remove-NicFromLoadbalancer
-
-Set-Loadbalancer
-
-Set-NicToLoadbalancer
-
-Get-BalancedNics
-
-#Nic
-Get-Nic
-
-New-Nic
-
-Remove-Nic
-
-Set-Nic
-
-
-#Firewall
-Get-FirewallRule
-
-New-FirewallRule
-
-Remove-FirewallRule
-
-Set-FirewallRule
-
-
-#IPBlock
- Get-IPBlock
- New-IPBlock
- Remove-IPBlock
-
-#lan
- Get-Lan
- New-Lan
- Remove-Lan
-
-#location
- Get-PBLocation
-
-#request status
- 
- Get-RequestStatus
+PARAMETERS
+    -Credential <PSCredential>
+        
+        Required?                    true
+        Position?                    0
+        Default value                
+        Accept pipeline input?       true (ByValue)
+        Accept wildcard characters?  false
+        
+    <CommonParameters>
+        This cmdlet supports the common parameters: Verbose, Debug,
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see 
+        about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216). 
+    
+INPUTS
+    System.Management.Automation.PSCredential
+        
+    
+    
+    
+OUTPUTS
+    
+    ----------  EXAMPLE 1  ----------
+    
+    $credentials = Get-Credential -Message [message text] -UserName [user_name]
+    Set-Profitbricks -Credential $credential
+```
