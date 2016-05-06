@@ -10,8 +10,8 @@ using System.Threading.Tasks;
 namespace Profitbricks
 {
     /// <summary>
-    /// <para type="synopsis">This commandlet will get one or list of Locations.</para>
-    /// <para type="synopsis">If LocationID parameter is provided then it will return only the specified snapshot.</para>
+    /// <para type="synopsis">This commandlet will get one or a list of locations.</para>
+    /// <para type="synopsis">If the LocationID parameter is provided then it will return only the specified snapshot.</para>
     /// </summary>
     /// <example>
     /// <para type="description">Get-PBLocation </para>
@@ -24,7 +24,7 @@ namespace Profitbricks
         #region Parameters
 
         /// <summary>
-        /// <para type="description">Location Id.</para>
+        /// <para type="description">Location ID.</para>
         /// </summary>
         [Parameter(HelpMessage ="Location Id",Position =0,ValueFromPipeline = true)]
         public string LocationId { get; set; }
